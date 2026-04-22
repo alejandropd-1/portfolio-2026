@@ -1,0 +1,51 @@
+{
+  "AleDesignTheme": {
+    "colors": {
+      "background": { "$type": "color", "$value": "#020f1e" },
+      "surface": { "$type": "color", "$value": "#020f1e" },
+      "surfaceBright": { "$type": "color", "$value": "#172d45" },
+      "surfaceDim": { "$type": "color", "$value": "#020f1e" },
+      "surfaceContainer": { "$type": "color", "$value": "#081b2c" },
+      "surfaceContainerLow": { "$type": "color", "$value": "#041425" },
+      "surfaceContainerLowest": { "$type": "color", "$value": "#000000" },
+      "surfaceContainerHigh": { "$type": "color", "$value": "#0d2134" },
+      "surfaceContainerHighest": { "$type": "color", "$value": "#12273c" },
+      "surfaceVariant": { "$type": "color", "$value": "#12273c" },
+      "onSurface": { "$type": "color", "$value": "#d9e7fc" },
+      "onSurfaceVariant": { "$type": "color", "$value": "#9eacc0" },
+      "inverseSurface": { "$type": "color", "$value": "#f8f9ff" },
+      "inverseOnSurface": { "$type": "color", "$value": "#495667" },
+      "primary": { "$type": "color", "$value": "#a3f185" },
+      "primaryContainer": { "$type": "color", "$value": "#68b24f" },
+      "primaryFixed": { "$type": "color", "$value": "#a3f185" },
+      "primaryDim": { "$type": "color", "$value": "#95e279" },
+      "onPrimary": { "$type": "color", "$value": "#145b00" },
+      "onPrimaryContainer": { "$type": "color", "$value": "#052900" },
+      "secondary": { "$type": "color", "$value": "#fd9d1a" },
+      "secondaryContainer": { "$type": "color", "$value": "#895100" },
+      "secondaryFixed": { "$type": "color", "$value": "#ffc78e" },
+      "secondaryDim": { "$type": "color", "$value": "#ed9000" },
+      "onSecondary": { "$type": "color", "$value": "#4c2b00" },
+      "onSecondaryContainer": { "$type": "color", "$value": "#fff6f1" },
+      "tertiary": { "$type": "color", "$value": "#5ed8ff" },
+      "tertiaryContainer": { "$type": "color", "$value": "#4dc9f1" },
+      "tertiaryFixed": { "$type": "color", "$value": "#4dc9f1" },
+      "tertiaryDim": { "$type": "color", "$value": "#39bce2" },
+      "onTertiary": { "$type": "color", "$value": "#00485a" },
+      "onTertiaryContainer": { "$type": "color", "$value": "#003e4e" },
+      "error": { "$type": "color", "$value": "#ff716c" },
+      "errorContainer": { "$type": "color", "$value": "#9f0519" },
+      "onError": { "$type": "color", "$value": "#490006" },
+      "onErrorContainer": { "$type": "color", "$value": "#ffa8a3" },
+      "outline": { "$type": "color", "$value": "#697789" },
+      "outlineVariant": { "$type": "color", "$value": "#3c495a" }
+    },
+    "typography": {
+      "fontFamilies": {
+        "headline": { "$type": "fontFamily", "$value": "Plus Jakarta Sans" },
+        "body": { "$type": "fontFamily", "$value": "Space Grotesk" },
+        "label": { "$type": "fontFamily", "$value": "Space Grotesk" }
+      }
+    }
+  }
+}
