@@ -1,0 +1,148 @@
+@use "../abstracts" as *;
+
+// =========================================
+// NAVBAR — "The Compiled Soul" Design System
+// =========================================
+// Regla: sin bordes sólidos de 1px; usamos outline-variant 
+// con baja opacidad (ghost border) y cambios tonales de superficie.
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba($clr-brand-surface, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($clr-brand-primary, $ghost-border-opacity);
+  padding-block: $size-4;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-family: $font-family-accent;
+    font-size: $font-size-400;
+    font-weight: $font-weight-bold;
+    color: $color-neutral-900;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: $size-2;
+
+    &:hover {
+      color: $clr-brand-primary;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: $navigation-gap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    font-family: $navigation-font-family;
+    font-size: $navigation-font-size;
+    font-weight: $navigation-font-weight;
+    color: $navigation-color;
+    text-decoration: none;
+    text-transform: $navigation-text-transform;
+    letter-spacing: $letter-spacing-loose;
+    padding-block: $size-2;
+    transition: all 300ms ease;
+    position: relative;
+
+    // Brackets animation on hover
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      color: $clr-brand-primary;
+    }
+
+    &::before {
+      content: "[";
+      left: -12px;
+      transform: translateX(5px);
+    }
+
+    &::after {
+      content: "]";
+      right: -12px;
+      transform: translateX(-5px);
+    }
+
+    &:hover {
+      color: $color-neutral-900;
+      
+      &::before,
+      &::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    // Underline on active state
+    &[data-active="true"] {
+      color: $clr-brand-primary;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $clr-brand-primary;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
+  &__system-icons {
+    display: flex;
+    align-items: center;
+    gap: $size-4;
+    margin-inline-start: $size-8;
+    color: $color-neutral-400;
+    font-size: $font-size-300;
+
+    i {
+      cursor: pointer;
+      transition: color 200ms ease;
+
+      &:hover {
+        color: $clr-brand-tertiary;
+      }
+    }
+  }
+
+  &__toggle {
+    margin-inline-start: $size-2;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    &__inner {
+      padding-block: $size-4;
+    }
+    
+    &__menu {
+      gap: $size-4;
+    }
+
+    &__item {
+      font-size: $font-size-300;
+    }
+  }
+}

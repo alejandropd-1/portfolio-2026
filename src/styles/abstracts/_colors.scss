@@ -1,3 +1,32 @@
+// The Compiled Soul - Brand Colors
+$clr-brand-surface: #020f1e;
+$clr-brand-primary: #a3f185;    // Neon Green
+$clr-brand-secondary: #fd9d1a;  // Syntax Orange
+$clr-brand-tertiary: #5ed8ff;   // Electric Blue
+$clr-brand-surface-low: #041425;
+$clr-brand-surface-high: #0d2134;
+
+// Convenience variables for components
+$color-primary-900: $clr-brand-primary;
+$color-primary-800: darken($clr-brand-primary, 10%);
+$color-primary-400: lighten($clr-brand-primary, 20%);
+$color-accent-500: $clr-brand-tertiary;
+$color-accent-400: darken($clr-brand-tertiary, 5%);
+$color-accent-300: darken($clr-brand-tertiary, 15%);
+$color-accent-200: darken($clr-brand-tertiary, 25%);
+$color-accent-100: darken($clr-brand-tertiary, 35%);
+$color-secondary-900: $clr-brand-secondary;
+$color-neutral-900: #ffffff;
+$color-neutral-800: #f0f0f0;
+$color-neutral-700: #e0e0e0;
+$color-neutral-600: #cccccc;
+$color-neutral-500: #999999;
+$color-neutral-400: #666666;
+$color-neutral-300: #444444;
+$color-neutral-200: $clr-brand-surface-high;
+$color-neutral-100: $clr-brand-surface-low;
+$color-neutral-000: $clr-brand-surface;
+
 // global color tokens
 $-clr-white: hsl(0 0% 100%);
 $-clr-gray-100: hsl(0 0% 95%);
@@ -196,31 +225,31 @@ $dark: (
     "500": $-clr-gray-500,
     "400": $-clr-gray-600,
     "300": $-clr-gray-700,
-    "200": $-clr-gray-800,
-    "100": $-clr-gray-900,
-    "000": $-clr-black,
+    "200": $clr-brand-surface-high,
+    "100": $clr-brand-surface-low,
+    "000": $clr-brand-surface,
   ),
   "accent": (
-    "900": $-clr-cyan-900,
-    "800": $-clr-cyan-800,
-    "700": $-clr-cyan-700,
-    "600": $-clr-cyan-600,
-    "500": $-clr-cyan-500,
-    "400": $-clr-cyan-400,
-    "300": $-clr-cyan-300,
-    "200": $-clr-cyan-200,
-    "100": $-clr-cyan-100,
+    "900": $clr-brand-secondary,
+    "800": darken($clr-brand-secondary, 10%),
+    "700": darken($clr-brand-secondary, 20%),
+    "600": darken($clr-brand-secondary, 30%),
+    "500": $clr-brand-tertiary,
+    "400": darken($clr-brand-tertiary, 10%),
+    "300": darken($clr-brand-tertiary, 20%),
+    "200": darken($clr-brand-tertiary, 30%),
+    "100": lighten($clr-brand-tertiary, 20%),
   ),
   "primary": (
-    "900": $-clr-darkcyan-900,
-    "800": $-clr-darkcyan-800,
-    "700": $-clr-darkcyan-700,
-    "600": $-clr-darkcyan-600,
-    "500": $-clr-darkcyan-500,
-    "400": $-clr-darkcyan-400,
-    "300": $-clr-darkcyan-300,
-    "200": $-clr-darkcyan-200,
-    "100": $-clr-darkcyan-100,
+    "900": $clr-brand-primary,
+    "800": darken($clr-brand-primary, 10%),
+    "700": darken($clr-brand-primary, 20%),
+    "600": darken($clr-brand-primary, 30%),
+    "500": lighten($clr-brand-primary, 10%),
+    "400": lighten($clr-brand-primary, 20%),
+    "300": lighten($clr-brand-primary, 30%),
+    "200": lighten($clr-brand-primary, 40%),
+    "100": lighten($clr-brand-primary, 50%),
   ),
 );
 

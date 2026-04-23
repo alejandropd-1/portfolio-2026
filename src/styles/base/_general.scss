@@ -1,22 +1,39 @@
 @use "../abstracts/" as *;
+@use "../abstracts/typography" as *;
+@use "../abstracts/tokens" as *;
 
 body {
-  font-family: $body-font-family;
-  font-weight: $body-font-weight;
+  background-color: $clr-brand-surface;
+  color: $color-neutral-900;
+  font-family: $font-family-base;
   font-size: $body-font-size;
-  color: $body-text-color;
-  background-color: $body-background-color;
   line-height: $body-line-height;
-  background-image: url(/images/body-background.webp);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: top;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba($clr-brand-primary, 0.3);
+  color: $color-neutral-900;
 }
 
 a {
   color: $link-color;
 }
 
-a:is(:hover, :focus) {
+.text-right {
   color: $link-color-hover;
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url(/images/grain.webp);
+  background-repeat: repeat;
 }

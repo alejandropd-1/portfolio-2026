@@ -1,0 +1,259 @@
+@use "../abstracts" as *;
+
+// =========================================
+// PAGE CONTENT — MDX prose styles
+// =========================================
+// Aplica a las páginas /resume, /about, /archive
+
+.page-content {
+  padding-block-start: $size-8;
+  padding-block-end: $section-padding-block;
+  font-family: $body-font-family;
+  font-size: $font-size-400;
+  line-height: $body-line-height;
+  color: $color-neutral-800;
+}
+
+// ---- Header de página (full-width, como Stitch) ----
+.page-header {
+  padding-block-end: $size-6;
+  margin-block-end: $size-8;
+
+  .page-title {
+    font-family: $heading-font-family;
+    font-size: $heading-1-font-size;
+    font-weight: $heading-font-weight;
+    color: $color-neutral-900;
+    line-height: $heading-line-height;
+    letter-spacing: -0.03em;
+    margin-block-end: $size-3;
+  }
+
+  .page-subtitle {
+    font-family: $font-family-accent;
+    font-size: $font-size-400;
+    color: $clr-brand-tertiary;
+    font-weight: $font-weight-default;
+    letter-spacing: 0.01em;
+    // Ghost border
+    padding-block-start: $size-3;
+    border-top: 1px solid rgba($color-primary-900, 0.15);
+  }
+}
+
+// ---- Prosa MDX ----
+.mdx-content {
+  max-width: 70ch;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+    color: $color-neutral-900;
+    line-height: $heading-line-height;
+    margin-block-start: $size-10;
+    margin-block-end: $size-4;
+  }
+
+  h1 { font-size: $font-size-800; letter-spacing: -0.03em; }
+  h2 {
+    font-size: $font-size-700;
+    letter-spacing: -0.02em;
+  }
+  h3 {
+    font-size: $font-size-600;
+    color: $clr-brand-secondary;
+    margin-block-start: $size-8;
+  }
+  h4 {
+    font-size: $font-size-500;
+    color: $color-neutral-700;
+  }
+
+  p {
+    margin-block-end: $size-5;
+    color: $color-neutral-700;
+    line-height: 1.75;
+  }
+
+  ul, ol {
+    padding-inline-start: $size-5;
+    margin-block-end: $size-6;
+
+    li {
+      margin-block-end: $size-2;
+      color: $color-neutral-700;
+      line-height: 1.65;
+
+      &::marker {
+        color: $clr-brand-primary;
+      }
+    }
+  }
+
+  // Links en prose
+  a {
+    color: $color-primary-900;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba($color-primary-900, 0.3);
+    transition: all 250ms ease;
+
+    &:is(:hover, :focus) {
+      color: $color-primary-800;
+      text-decoration-color: $color-primary-800;
+    }
+  }
+
+  // Bloques de código
+  pre {
+    background-color: $clr-brand-surface-high;
+    border-radius: $size-1;
+    padding: $size-6;
+    overflow-x: auto;
+    margin-block: $size-6;
+    border: 1px solid rgba($clr-brand-primary, 0.1);
+    font-family: $font-family-accent;
+    font-size: $font-size-300;
+    line-height: 1.7;
+  }
+
+  code {
+    font-family: $font-family-accent;
+    font-size: 0.88em;
+    background-color: $clr-brand-surface-high;
+    padding: 0.15em 0.4em;
+    border-radius: $size-1;
+    color: $clr-brand-secondary;
+  }
+
+  // Separadores (hr) — ghost border
+  hr {
+    border: none;
+    height: 1px;
+    background: rgba($color-primary-900, 0.15);
+    margin-block: $size-9;
+  }
+
+  strong {
+    color: $color-neutral-900;
+    font-weight: $font-weight-bold;
+  }
+
+  em {
+    color: $clr-brand-tertiary;
+    font-style: italic;
+  }
+
+  blockquote {
+    border-inline-start: 2px solid $clr-brand-primary;
+    padding-inline-start: $size-5;
+    padding-block: $size-3;
+    margin-inline-start: 0;
+    margin-block: $size-7;
+    background: rgba($clr-brand-primary, 0.05);
+    border-radius: 0 $size-1 $size-1 0;
+
+    p {
+      color: $color-neutral-800;
+      font-size: $font-size-500;
+      font-style: italic;
+      margin: 0;
+    }
+  }
+
+.archive-page {
+  padding-block: $size-12;
+
+  &__header {
+    margin-block-end: $size-12;
+  }
+}
+
+.terminal-window {
+  background-color: rgba($clr-brand-surface-low, 0.5);
+  border: 1px solid rgba($clr-brand-primary, $ghost-border-opacity);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-header {
+  background-color: rgba($clr-brand-surface-high, 0.8);
+  padding: $size-3 $size-5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba($clr-brand-primary, 0.1);
+
+  .terminal-label {
+    font-family: $font-family-accent;
+    font-size: $font-size-200;
+    color: $color-neutral-500;
+  }
+
+  .terminal-controls {
+    display: flex;
+    gap: $size-2;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba($color-neutral-500, 0.3);
+
+      &:nth-child(1) { background-color: #ff5f56; }
+      &:nth-child(2) { background-color: #ffbd2e; }
+      &:nth-child(3) { background-color: #27c93f; }
+    }
+  }
+}
+
+.terminal-body {
+  padding: $size-6;
+}
+
+// ---- Tablas (Archive) ----
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-family-accent;
+  font-size: $font-size-300;
+
+  thead {
+    tr {
+      border-bottom: 2px solid rgba($clr-brand-primary, 0.2);
+    }
+
+    th {
+      padding: $size-4;
+      text-align: left;
+      font-weight: $font-weight-bold;
+      color: $clr-brand-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: $font-size-200;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid rgba($clr-brand-primary, 0.05);
+      transition: background-color 200ms ease;
+
+      &:hover {
+        background-color: rgba($clr-brand-primary, 0.03);
+      }
+    }
+
+    td {
+      padding: $size-4;
+      color: $color-neutral-400;
+
+      &:first-child {
+        color: $clr-brand-tertiary;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+}

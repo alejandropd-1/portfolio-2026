@@ -9,49 +9,70 @@ export default async function Home() {
   // Filtramos solo los publicados
   const jobs = allJobs.filter((job) => job.status === 'published');
 
-  // Procesamos el contenido MDX internamente para cada trabajo
-  const jobsWithContent = jobs.map((job) => ({
-    ...job,
-    // Aquí el contenido puede ser null o el texto markdown puro extraído por gray-matter 
-  }));
-
-  const designJobs = jobsWithContent.filter((job) => job.category === 'design');
-  const otherJobs = jobsWithContent.filter((job) => job.category !== 'design');
+  const designJobs = jobs.filter((job) => job.category === 'design');
 
   return (
-    <main>
-      <div className="container">
-        <Header />
+    <main className="container">
+      <div className="home-layout">
+        <Sidebar />
 
-        <div className="section padding-block-start-10">
-          {/* Trabajos de diseño */}
-          {designJobs.length > 0 && (
-            <>
-              <h3 className="job-title margin-block-end-4">UX/UI Web Designer</h3>
-              {designJobs.map((job) => (
-                <Job
-                  key={job.slug}
-                  title={job.title}
-                  category={job.category}
-                  summary={job.summary}
-                  slug={job.slug}
-                />
-              ))}
-            </>
-          )}
+        <div className="home-main">
+          <section className="hero">
+            <div className="hero__path">~/root/projects</div>
+            <h1 className="hero__title">
+              Compiled <br />
+              <span className="accent">Visions.</span>
+            </h1>
+            <p className="hero__description">
+              Senior UX/UI Designer & Visual Architect. 
+              Bridging the gap between pure logic and human soul through code-inspired design.
+            </p>
+          </section>
 
-          {/* Otros Trabajos (Marketing, Management, 3D, etc) */}
-          {otherJobs.map((job) => (
-            <Job
-              key={job.slug}
-              title={job.title}
-              category={job.category}
-              summary={job.summary}
-              slug={job.slug}
-            />
-          ))}
+          <div className="project-feed">
+            <div className="home-section-label">Selected Works</div>
+            {designJobs.map((job) => (
+              <Job
+                key={job.slug}
+                {...job}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </main>
+  );
+}
+
+function Sidebar() {
+  return (
+    <aside className="sidebar">
+      <div className="sidebar__section">
+        <span className="sidebar__label">Status</span>
+        <div className="status-indicator">
+          <div className="status-indicator__dot"></div>
+          <span>Available for hire</span>
+        </div>
+      </div>
+
+      <div className="sidebar__section">
+        <span className="sidebar__label">Filters</span>
+        <ul className="sidebar__list">
+          <li className="sidebar__item" data-active="true">All Projects</li>
+          <li className="sidebar__item">Product Design</li>
+          <li className="sidebar__item">Visual Systems</li>
+          <li className="sidebar__item">Experiments</li>
+        </ul>
+      </div>
+
+      <div className="sidebar__section">
+        <span className="sidebar__label">Connect</span>
+        <ul className="sidebar__list">
+          <li className="sidebar__item">LinkedIn</li>
+          <li className="sidebar__item">GitHub</li>
+          <li className="sidebar__item">E-mail</li>
+        </ul>
+      </div>
+    </aside>
   );
 }

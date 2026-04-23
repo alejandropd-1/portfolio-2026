@@ -2,7 +2,7 @@
 
 @each $color, $shade-map in $active-theme {
   @each $shade, $value in $shade-map {
-    .clr-#{$color}-#{$shade} {
+    .color-#{$color}-#{$shade} {
       color: var(--#{$color}-#{$shade});
     }
     .bg-#{$color}-#{$shade} {

@@ -25,13 +25,37 @@
     }
   }
 
-  &[data-type="primary"] {
+  &[data-type="primary"],
+  &.btn-primary {
     background-color: $button-primary-background;
     color: $button-primary-color;
+    border: 1px solid rgba($clr-brand-primary, 0.2);
 
     &:is(:hover, :focus) {
       background-color: $button-primary-background-hover;
-      color: $button-primary-color-hover;
+      border-color: rgba($clr-brand-primary, 0.5);
+      box-shadow: 0 0 20px rgba($clr-brand-primary, 0.2);
     }
+  }
+}
+
+.theme-toggle {
+  background: transparent;
+  color: $color-neutral-900;
+  border: 1px solid rgba($color-neutral-900, 0.1);
+  border-radius: $size-1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $size-2;
+  font-size: 1.25rem;
+  transition: all 250ms ease;
+
+  &:hover {
+    background: rgba($color-neutral-900, 0.05);
+    border-color: $clr-brand-primary;
+    color: $clr-brand-primary;
+    transform: rotate(15deg);
   }
 }

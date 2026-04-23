@@ -1,8 +1,8 @@
-$-ff-sans: var(--font-jost), system-ui, sans-serif;
-$-ff-serif: var(--font-roboto), monospace;
+$font-family-base: "Jost", sans-serif;
+$font-family-accent: "Roboto Mono", monospace;
 
-$font-family-base: $-ff-sans;
-$font-family-accent: $-ff-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
 
 $font-sizes: (
   "small": (
@@ -27,6 +27,7 @@ $font-sizes: (
   ),
 );
 
+$font-size-200: var(--fs-200);
 $font-size-300: var(--fs-300);
 $font-size-400: var(--fs-400);
 $font-size-500: var(--fs-500);

@@ -2,20 +2,20 @@
 @use "typography" as *;
 @use "sizes" as *;
 
-$active-theme: $light;
+$active-theme: $dark;
 $enable-media-query-dark-mode: false;
 
 // Contextual
-$color-text-default: $color-neutral-200;
-$color-background-default: $color-primary-800;
-$color-text-interactive-default: $color-accent-200;
-$color-text-interactive-hover: $color-accent-300;
+$color-text-default: $color-neutral-900;
+$color-background-default: $color-neutral-000;
+$color-text-interactive-default: $color-primary-900;
+$color-text-interactive-hover: $color-primary-800;
 
-// set to 0 to disable
-$letter-spacing-loose: 0;
+$letter-spacing-loose: 0.1em;
+$ghost-border-opacity: 0.12;
 
-$border-radius-1: $size-2;
-$border-radius-2: $size-4;
+$border-radius-1: 4px;
+$border-radius-2: 8px;
 
 $box-shadow-1: 0px 6px 5px rgb(0, 0, 0, 0.012),
   0px 22px 18px rgb(0, 0, 0, 0.018), 0px 100px 80px rgb(0, 0, 0, 0.03);
@@ -44,73 +44,70 @@ $link-color: $color-text-interactive-default;
 $link-color-hover: $color-text-interactive-hover;
 
 $heading-font-family: $font-family-base;
-$heading-color-default: $color-neutral-200;
-$heading-font-weight: $font-weight-semi-bold;
-$heading-letter-spacing: $letter-spacing-loose;
-$heading-line-height: 1.1;
-$heading-text-transform: Capitalize;
+$heading-color-default: $color-neutral-900;
+$heading-font-weight: $font-weight-bold;
+$heading-letter-spacing: -0.04em;
+$heading-line-height: 1;
+$heading-text-transform: none;
 
 $heading-1-font-size: $font-size-900;
 $heading-1-color: $heading-color-default;
 $heading-2-font-size: $font-size-800;
 $heading-2-color: $heading-color-default;
-$heading-3-font-size: $font-size-500;
+$heading-3-font-size: $font-size-700;
 $heading-3-color: $heading-color-default;
 
 // layout
-$grid-gap: $size-6;
+$grid-gap: $size-8;
 $flex-group-gap: $size-4;
 
-$hero-padding-block: clamp(15rem, 15vh, 20rem);
-$section-padding-block: clamp(5rem, 10vh, 6rem);
+$hero-padding-block: clamp(10rem, 12vh, 15rem);
+$section-padding-block: clamp(4rem, 8vh, 6rem);
 
-$container-min-margin-inline: $size-4;
-$container-max-width: 64rem;
-$container-max-width-narrow: 40rem;
-$container-max-width-wide: 75rem;
+$container-min-margin-inline: $size-6;
+$container-max-width: 70rem;
+$container-max-width-narrow: 45rem;
+$container-max-width-wide: 85rem;
 
 // site header
-$site-header-background-color: $color-primary-300;
+$site-header-background-color: transparent;
 $site-header-color: $color-neutral-900;
-$site-header-padding: $size-8 0;
-$site-header-margin: 0;
-$site-header-jusitifcation-small-screens: center;
-$site-header-jusitifcation-large-screens: space-between;
-$site-header-alignment: center;
+$site-header-padding: $size-12 0;
 
 //navigation
-$navigation-color: $site-header-color;
-$navigation-color-hover: $color-primary-300;
-$navigation-font-size: $font-size-400;
-$navigation-gap: $size-9;
+$navigation-color: $color-neutral-500;
+$navigation-color-hover: $color-primary-900;
+$navigation-font-size: $font-size-300;
+$navigation-gap: $size-8;
 $navigation-link-text-decoration: none;
-$navigation-font-family: $body-font-family;
-$navigation-font-weight: $body-font-weight;
+$navigation-font-family: $font-family-accent;
+$navigation-font-weight: $font-weight-bold;
+$navigation-text-transform: uppercase;
 
 // site footer
-$footer-background-color: $color-primary-300;
-$footer-text-color: $color-primary-900;
-$footer-link-color: $color-neutral-100;
-$footer-link-color-hover: $color-primary-200;
+$footer-background-color: $color-neutral-100;
+$footer-text-color: $color-neutral-600;
+$footer-link-color: $color-neutral-700;
+$footer-link-color-hover: $color-primary-900;
 $footer-link-font-family: $font-family-accent;
 $footer-link-text-decoration: none;
 
 // buttons
-$button-font-family: $body-font-family;
-$button-font-size: $font-size-400;
+$button-font-family: $font-family-accent;
+$button-font-size: $font-size-300;
 $button-font-weight: $font-weight-bold;
 $button-text-transform: uppercase;
-$button-padding: 0.75em 2em;
-$button-border: 0;
-$button-border-radius: $border-radius-1;
+$button-padding: 0.85em 2.25em;
+$button-border: 1px solid transparent;
+$button-border-radius: $size-1;
 
 $button-accent-color: $color-neutral-100;
-$button-accent-background: $color-accent-400;
-$button-accent-color-hover: $color-neutral-100;
-$button-accent-background-hover: $color-accent-500;
-$button-primary-color: $color-neutral-100;
-$button-primary-background: $color-primary-700;
-$button-primary-color-hover: $color-neutral-100;
+$button-accent-background: $color-accent-500;
+$button-accent-color-hover: $color-neutral-000;
+$button-accent-background-hover: $color-accent-400;
+$button-primary-color: $color-neutral-000;
+$button-primary-background: $color-primary-900;
+$button-primary-color-hover: $color-neutral-000;
 $button-primary-background-hover: $color-primary-800;
 
 // cards

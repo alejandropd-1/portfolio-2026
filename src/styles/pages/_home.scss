@@ -1,0 +1,114 @@
+@use "../abstracts" as *;
+
+.home-layout {
+  display: grid;
+  gap: $size-10;
+  padding-block-start: $size-12;
+
+  @include mq(large) {
+    grid-template-columns: 280px 1fr;
+    align-items: flex-start;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: $size-12;
+  display: flex;
+  flex-direction: column;
+  gap: $size-10;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $size-4;
+  }
+
+  &__label {
+    font-family: $font-family-accent;
+    font-size: $font-size-200;
+    font-weight: $font-weight-bold;
+    color: $color-neutral-500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $size-2;
+  }
+
+  &__item {
+    font-family: $font-family-accent;
+    font-size: $font-size-300;
+    color: $color-neutral-400;
+    cursor: pointer;
+    transition: color 200ms ease;
+
+    &:hover, &[data-active="true"] {
+      color: $clr-brand-primary;
+    }
+
+    &[data-active="true"]::before {
+      content: "> ";
+    }
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: $size-3;
+    font-family: $font-family-accent;
+    font-size: $font-size-300;
+    color: $clr-brand-primary;
+
+    &__dot {
+      width: 8px;
+      height: 8px;
+      background-color: $clr-brand-primary;
+      border-radius: 50%;
+      box-shadow: 0 0 10px $clr-brand-primary;
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.hero {
+  margin-block-end: $size-12;
+
+  &__path {
+    font-family: $font-family-accent;
+    font-size: $font-size-300;
+    color: $color-neutral-500;
+    margin-block-end: $size-2;
+  }
+
+  &__title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    font-weight: $font-weight-bold;
+
+    .accent {
+      color: $clr-brand-primary;
+    }
+  }
+
+  &__description {
+    margin-block-start: $size-6;
+    font-size: $font-size-500;
+    color: $color-neutral-400;
+    max-width: 50ch;
+    line-height: 1.5;
+  }
+}

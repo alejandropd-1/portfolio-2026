@@ -1,17 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AleDesign Portfolio 2026 - "The Compiled Soul"
 
-## Getting Started
+Portfolio profesional de AleDesign como Senior UI/UX Architect, construido con un enfoque técnico y una estética premium.
 
-First, run the development server:
+## 🚀 Arquitectura Técnica
+
+- **Framework:** Next.js 15 (App Router)
+- **Estilos:** SASS Modular (Metodología BEM)
+- **Contenido:** MDX / Markdown (`next-mdx-remote/rsc`)
+- **Dark Mode:** Zero-FOUC mediante SSR y Cookies
+
+## 📦 Estructura del Proyecto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/               # Rutas de Next.js 15 (page.js, layout.js)
+├── components/        # Componentes UI reutilizables (BEM)
+├── content/           # Archivos .md y .mdx con la data
+└── styles/            # Sistema SASS modular
+    ├── abstracts/     # Tokens, variables, mixins
+    ├── base/          # Resets, tipografía
+    ├── components/    # Estilos de bloques BEM
+    └── layout/        # Estilos estructurales
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

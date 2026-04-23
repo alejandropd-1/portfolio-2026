@@ -35,18 +35,7 @@ export default function DarkToggle({ initialTheme }) {
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       title="Cambiar Tema"
-      style={{
-        background: "transparent",
-        color: "var(--color-neutral-900)",
-        border: "none",
-        cursor: "pointer",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "0.5rem",
-        fontSize: "1.5rem",
-        marginLeft: "0.5rem",
-      }}
+      className="theme-toggle"
     >
       {theme === "dark" ? (
         <i className="fa-solid fa-moon"></i>

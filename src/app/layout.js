@@ -1,19 +1,21 @@
-import { Jost, Roboto_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
 import '@/styles/main.scss';
 
-const fontJost = Jost({
+const fontJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-jost',
+  variable: '--font-jakarta',
   display: 'swap',
 });
 
-const fontRoboto = Roboto_Mono({
+const fontSpace = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-roboto',
+  variable: '--font-space',
   display: 'swap',
 });
 import Script from 'next/script';
 import { cookies } from 'next/headers';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Alejandro Delgado - UX/UI Web Designer Portfolio',
@@ -70,7 +72,7 @@ export default async function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" data-theme={theme} className={`${fontJost.variable} ${fontRoboto.variable}`}>
+    <html lang="en" data-theme={theme} className={`${fontJakarta.variable} ${fontSpace.variable}`}>
       <head>
         <Script
           src="https://kit.fontawesome.com/e0025567be.js"
@@ -114,6 +116,7 @@ export default async function RootLayout({ children }) {
         />
       </head>
       <body>
+        <div className="grain-overlay"></div>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KNVXGZVD"
@@ -123,7 +126,11 @@ export default async function RootLayout({ children }) {
           />
         </noscript>
         
-        {children}
+        <Navbar />
+        <main>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

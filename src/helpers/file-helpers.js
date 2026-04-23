@@ -60,3 +60,20 @@ function readDirectory(localPath) {
     path.join(process.cwd(), localPath)
   );
 }
+
+export async function loadPage(filename) {
+  let rawContent;
+  try {
+    rawContent = await readFile(`/src/content/${filename}.mdx`);
+  } catch (e) {
+    try {
+      rawContent = await readFile(`/src/content/${filename}.md`);
+    } catch (err) {
+      throw new Error(`Page content for ${filename} not found`);
+    }
+  }
+
+  const { data: frontmatter, content } = matter(rawContent);
+
+  return { frontmatter, content };
+}
