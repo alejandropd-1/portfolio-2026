@@ -1,35 +1,25 @@
-@use "sass:meta";
-@use "sass:math";
-@use "sass:map";
-@use "breakpoints" as *;
-@use "tokens" as *;
+// src/styles/abstracts/_mixins.scss
+@use "colors" as *;
+@use "sizes" as *;
 
-@mixin mq($size) {
-  @if map.has-key($breakpoints, $size) {
-    $breakpoint: map.get($breakpoints, $size);
-    @media screen and (min-width: $breakpoint) {
-      @content;
-    }
-  } @else if meta.type-of($size) == number {
-    @if math.is-unitless($size) {
-      @error 'when using a number with @mq() make sure to include a unit';
-    } @else {
-      @media screen and (min-width: $size) {
-        @content;
-      }
-    }
-  } @else {
-    @error 'the keyword #{$size} is not in the $breakpoints map';
-  }
+@mixin glass {
+  background: rgba(var(--clr-brand-surface-rgb), 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-@mixin heading($fs, $color: $heading-color-default) {
-  font-size: $fs;
-  color: $color;
+@mixin syntax-card {
+  background: var(--clr-brand-surface-low);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: $radius-soft;
+}
 
-  font-family: $heading-font-family;
-  text-transform: $heading-text-transform;
-  letter-spacing: $heading-letter-spacing;
-  font-weight: $heading-font-weight;
-  line-height: $heading-line-height;
+@mixin ghost-border {
+  border: 1px solid rgba(var(--clr-brand-on-surface-rgb), $ghost-border-opacity);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

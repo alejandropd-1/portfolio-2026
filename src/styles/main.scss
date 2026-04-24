@@ -1,6 +1,4 @@
-@use "base";
-@use "components";
-@use "layout";
-@use "pages/home";
-@use "utilities";
-@use "vendor";
+// src/styles/main.scss
+
+@use "base/reset";
+@use "base/globals";

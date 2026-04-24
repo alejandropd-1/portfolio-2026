@@ -1,0 +1,75 @@
+// src/styles/components/_ui.scss
+@use "../abstracts" as *;
+
+.syntax-card {
+  @include syntax-card;
+  position: relative;
+
+  &__label {
+    position: absolute;
+    top: -0.75rem;
+    left: 1rem;
+    background: $clr-brand-surface-low;
+    padding: 0.25rem 0.5rem;
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $clr-brand-on-surface-variant;
+    z-index: 10;
+    
+    span {
+      color: $clr-brand-secondary;
+      font-weight: $fw-bold;
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: $radius-soft;
+  font-size: 10px;
+  font-weight: $fw-bold;
+  letter-spacing: $ls-wide;
+  transition: all 0.2s;
+  @include ghost-border;
+  color: $clr-brand-on-surface-variant;
+
+  &:hover {
+    color: $clr-brand-on-surface;
+    border-color: rgba($clr-brand-on-surface, 0.4);
+  }
+
+  &--active {
+    background-color: $clr-brand-primary;
+    color: $clr-brand-on-primary;
+    border: none;
+  }
+}
+
+.key-value {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  font-size: $fs-xs;
+  font-family: $font-mono;
+
+  &__key {
+    color: $clr-brand-secondary;
+  }
+
+  &__val {
+    color: $clr-brand-on-surface;
+    font-style: italic;
+  }
+}
+
+// Pages skeletons
+.page-container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  
+  @include mq("md") {
+    padding: 5rem 3rem;
+  }
+}

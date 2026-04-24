@@ -1,0 +1,157 @@
+// src/styles/base/_globals.scss
+@use "../abstracts" as *;
+
+:root {
+  --clr-brand-surface-rgb: 1, 12, 21;
+  --clr-brand-surface-low-rgb: 2, 18, 32;
+  --clr-brand-on-surface-rgb: 241, 247, 254;
+  --clr-brand-on-surface-variant-rgb: 107, 124, 142;
+  --clr-brand-primary-rgb: 182, 255, 84;
+  --clr-brand-secondary-rgb: 253, 157, 26;
+  --clr-brand-tertiary-rgb: 94, 216, 255;
+
+  --clr-brand-surface: rgb(var(--clr-brand-surface-rgb));
+  --clr-brand-surface-low: rgb(var(--clr-brand-surface-low-rgb));
+  --clr-brand-on-surface: rgb(var(--clr-brand-on-surface-rgb));
+  --clr-brand-on-surface-variant: rgb(var(--clr-brand-on-surface-variant-rgb));
+  --clr-brand-primary: rgb(var(--clr-brand-primary-rgb));
+  --clr-brand-on-primary: var(--clr-brand-surface);
+  --clr-brand-secondary: rgb(var(--clr-brand-secondary-rgb));
+  --clr-brand-tertiary: rgb(var(--clr-brand-tertiary-rgb));
+  --clr-brand-danger: #ef4444;
+}
+
+.light {
+  --clr-brand-surface-rgb: 248, 250, 252;
+  --clr-brand-surface-low-rgb: 255, 255, 255;
+  --clr-brand-on-surface-rgb: 15, 23, 42;
+  --clr-brand-on-surface-variant-rgb: 71, 85, 105;
+  --clr-brand-primary-rgb: 37, 99, 235;
+  --clr-brand-secondary-rgb: 147, 51, 234;
+  --clr-brand-tertiary-rgb: 6, 182, 212;
+
+  --clr-brand-surface: rgb(var(--clr-brand-surface-rgb));
+  --clr-brand-surface-low: rgb(var(--clr-brand-surface-low-rgb));
+  --clr-brand-on-surface: rgb(var(--clr-brand-on-surface-rgb));
+  --clr-brand-on-surface-variant: rgb(var(--clr-brand-on-surface-variant-rgb));
+  --clr-brand-primary: rgb(var(--clr-brand-primary-rgb));
+  --clr-brand-on-primary: #ffffff;
+  --clr-brand-secondary: rgb(var(--clr-brand-secondary-rgb));
+  --clr-brand-tertiary: rgb(var(--clr-brand-tertiary-rgb));
+  --clr-brand-danger: #dc2626;
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-text;
+  font-family: $body-font;
+  font-size: $fs-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  font-weight: $heading-font-weight;
+  letter-spacing: $heading-letter-spacing;
+  line-height: 1.1;
+}
+
+main {
+  // padding-top: calc(#{$nav-height} + #{$size-24});
+  min-height: calc(100vh - #{$nav-height});
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: $size-16 $size-6 $size-32; // Increased top/bottom padding
+
+  @include mq(md) {
+    padding: $size-24 $size-12 $size-48; // Increased top/bottom padding for desktop
+  }
+}
+
+.bold { font-weight: $fw-bold; }
+.italic { font-style: italic; }
+.primary-text, .text-primary { color: $clr-brand-primary; }
+.secondary-text, .text-secondary { color: $clr-brand-secondary; }
+.tertiary-text, .text-tertiary { color: $clr-brand-tertiary; }
+.mono { font-family: $mono-font; }
+
+// MDX Utility Classes Fallback
+.grid { display: grid; }
+.flex { display: flex; }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+}
+.gap-8 { gap: $size-8; }
+.gap-4 { gap: $size-4; }
+.my-16 { margin-top: $size-16; margin-bottom: $size-16; }
+.my-8 { margin-top: $size-8; margin-bottom: $size-8; }
+.mb-4 { margin-bottom: $size-4; }
+.mb-2 { margin-bottom: $size-2; }
+.p-8 { padding: $size-8; }
+.p-2 { padding: $size-2; }
+.py-10 { padding-top: $size-10; padding-bottom: $size-10; }
+.w-fit { width: fit-content; }
+.w-10 { width: 2.5rem; }
+.h-10 { height: 2.5rem; }
+.text-center { text-align: center; }
+.text-xl { font-size: $fs-xl; }
+.text-sm { font-size: $fs-sm; }
+.text-4xl { font-size: $fs-4xl; }
+.text-\[10px\] { font-size: 10px; }
+.uppercase { text-transform: uppercase; }
+.tracking-widest { letter-spacing: $ls-widest; }
+.leading-relaxed { line-height: 1.6; }
+.rounded-sm { border-radius: $radius-soft; }
+.rounded-full { border-radius: 9999px; }
+.border { border: 1px solid transparent; }
+.border-white\/5 { border-color: rgba(255, 255, 255, 0.05); }
+.border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
+.bg-\[\#021220\] { background-color: rgba(var(--clr-brand-surface-low-rgb), 0.6); }
+.bg-\[\#010c15\] { background-color: #010c15; }
+.bg-\[\#b6ff54\] { background-color: $clr-brand-primary; }
+.bg-\[\#5ed8ff\] { background-color: $clr-brand-tertiary; }
+.text-\[\#6b7c8e\] { color: $clr-brand-on-surface-variant; }
+.bg-primary\/10 { background-color: rgba(var(--clr-brand-primary-rgb), 0.1); }
+.bg-tertiary\/10 { background-color: rgba(var(--clr-brand-tertiary-rgb), 0.1); }
+.text-\[\#fbd065\] { color: $clr-brand-secondary; }
+
+// Basic MDX Content Styling (Prose)
+article {
+  h2 {
+    font-size: $fs-4xl;
+    margin-top: $size-20;
+    margin-bottom: $size-8;
+    color: $clr-brand-on-surface;
+  }
+
+  h3 {
+    font-size: $fs-2xl;
+    margin-top: $size-12;
+    margin-bottom: $size-6;
+    color: $clr-brand-on-surface;
+  }
+
+  p {
+    margin-bottom: $size-8;
+    line-height: $lh-relaxed;
+    color: $clr-brand-on-surface-variant;
+    font-size: $fs-lg;
+  }
+
+  ul {
+    margin-bottom: $size-8;
+    padding-left: $size-6;
+    list-style: disc;
+
+    li {
+      margin-bottom: $size-4;
+      color: $clr-brand-on-surface-variant;
+    }
+  }
+}

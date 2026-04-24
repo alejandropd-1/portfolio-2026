@@ -1,0 +1,98 @@
+@use "../abstracts" as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $size-6;
+  background: rgba(var(--clr-brand-surface-rgb), 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(white, 0.05);
+  z-index: 100;
+
+  @include mq(md) {
+    padding: 0 $size-12;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: $fs-lg;
+    letter-spacing: $ls-tight;
+    font-weight: $fw-bold;
+    color: $clr-brand-primary;
+
+    span:first-child {
+      color: $clr-brand-on-surface;
+      font-weight: $fw-bold;
+    }
+
+    span:last-child {
+      display: none;
+    }
+  }
+
+  &__links {
+    display: none;
+    align-items: center;
+    gap: $size-8;
+
+    @include mq(md) {
+      display: flex;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: $mono-font;
+    font-size: $fs-xs;
+    font-weight: $fw-bold;
+    letter-spacing: $ls-wide;
+    color: $clr-brand-on-surface-variant;
+    transition: color 0.3s ease;
+    padding: $size-2 0;
+
+    &:hover {
+      color: $clr-brand-on-surface;
+    }
+
+    &--active {
+      color: $clr-brand-primary;
+    }
+  }
+
+  &__pill {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $clr-brand-primary;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $size-4;
+  }
+
+  &__btn {
+    background: none;
+    border: none;
+    color: $clr-brand-on-surface-variant;
+    cursor: pointer;
+    padding: $size-2;
+    border-radius: $radius-soft;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $clr-brand-on-surface;
+      background: rgba(var(--clr-brand-on-surface-rgb), 0.05);
+    }
+  }
+}

@@ -1,14 +1,13 @@
-$breakpoints: (
-  small: 30em,
-  //480
-  medium: 45em,
-  //720
-  large: 65em,
-  //1040
-  xlarge: 80em,
-  //1280
-  xxlarge: 100em,
-  //1600
-  xxxlarge: 120em,
-  //1920
-);
+// src/styles/abstracts/_breakpoints.scss
+
+@mixin mq($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: 640px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: 1280px) { @content; }
+  }
+}

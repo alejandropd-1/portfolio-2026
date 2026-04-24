@@ -1,0 +1,54 @@
+// src/styles/components/_footer.scss
+@use "../abstracts" as *;
+
+.footer {
+  padding: 3rem 1.5rem;
+  border-top: 1px solid rgba($clr-brand-on-surface, 0.05);
+  margin-top: auto;
+
+  @include mq("md") {
+    padding: 3rem 3rem;
+  }
+
+  &__content {
+    max-width: $container-max;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include mq("md") {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: $fw-bold;
+    color: $clr-brand-primary;
+    letter-spacing: $ls-tighter;
+  }
+
+  &__links {
+    display: flex;
+    gap: 2rem;
+    font-size: 11px;
+    font-weight: $fw-bold;
+    letter-spacing: $ls-wide;
+    color: $clr-brand-on-surface-variant;
+
+    a:hover {
+      color: $clr-brand-on-surface;
+    }
+  }
+
+  &__copyright {
+    font-size: 10px;
+    font-weight: $fw-bold;
+    letter-spacing: $ls-wide;
+    color: $clr-brand-on-surface-variant;
+    text-transform: uppercase;
+  }
+}

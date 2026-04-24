@@ -1,0 +1,302 @@
+@use "../abstracts" as *;
+
+.resume {
+  &__search {
+    max-width: 64rem;
+    margin: 0 auto $size-32;
+  }
+
+  &__searchLabel {
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: $clr-brand-on-surface-variant;
+    font-weight: $fw-bold;
+    margin-bottom: $size-8;
+  }
+
+  &__searchBox {
+    position: relative;
+    margin-bottom: $size-6;
+    
+    svg {
+      position: absolute;
+      left: $size-6;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $clr-brand-on-surface-variant;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background: $clr-brand-surface-low;
+    border: 1px solid rgba(white, 0.05);
+    border-radius: $radius-soft;
+    padding: $size-5 $size-6 $size-5 $size-16;
+    font-size: $fs-sm;
+    color: $clr-brand-on-surface;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: rgba($clr-brand-primary, 0.3);
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $size-4;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $size-2;
+    align-items: center;
+  }
+
+  &__clearAll {
+    background: none;
+    border: none;
+    font-size: 10px;
+    font-weight: $fw-bold;
+    letter-spacing: $ls-widest;
+    color: $clr-brand-on-surface-variant;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: $size-1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-left: $size-4;
+
+    &:hover {
+      color: $clr-brand-on-surface;
+    }
+  }
+
+  &__downloads {
+    display: flex;
+    gap: $size-3;
+  }
+
+  &__downloadBtn {
+    display: flex;
+    align-items: center;
+    gap: $size-2;
+    padding: $size-2 $size-4;
+    border: 1px solid rgba(white, 0.1);
+    border-radius: $radius-soft;
+    font-size: 10px;
+    font-weight: $fw-bold;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: $clr-brand-surface-low;
+    }
+
+    svg {
+      color: $clr-brand-primary;
+    }
+  }
+
+  &__hero {
+    margin-bottom: $size-32;
+
+    h1 {
+      font-size: $fs-5xl;
+      line-height: 0.9;
+      letter-spacing: $ls-tighter;
+      margin-bottom: $size-8;
+
+      @include mq(md) { font-size: $fs-8xl; }
+      
+      span { color: $clr-brand-primary; }
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-xl;
+    @include mq(md) { font-size: $fs-2xl; }
+    color: $clr-brand-on-surface-variant;
+    max-width: 48rem;
+    line-height: $lh-relaxed;
+    margin-bottom: $size-12;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $size-12 $size-4;
+    font-family: $mono-font;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: $ls-wide;
+
+    &Group {
+      display: flex;
+      gap: $size-2;
+      
+      span:first-child { color: $clr-brand-secondary; }
+      span:last-child { color: $clr-brand-on-surface; }
+      
+      &--primary span:last-child {
+        color: $clr-brand-primary;
+        &:hover { text-decoration: underline; cursor: pointer; }
+      }
+    }
+  }
+
+  &__section {
+    margin-bottom: $size-40;
+    
+    &Header {
+      display: flex;
+      align-items: center;
+      gap: $size-4;
+      margin-bottom: $size-20;
+      
+      span { font-family: $mono-font; font-size: $fs-xs; color: $clr-brand-primary; }
+      h2 { font-size: $fs-4xl; font-weight: $fw-bold; letter-spacing: $ls-tight; }
+    }
+  }
+
+  &__expCard {
+    @include glass;
+    padding: $size-10;
+    border-radius: $radius-soft;
+    margin-bottom: $size-10;
+    
+    &Header {
+      display: flex;
+      flex-direction: column;
+      gap: $size-6;
+      margin-bottom: $size-8;
+      
+      @include mq(md) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+      }
+    }
+
+    &Title {
+      font-size: $fs-3xl;
+      font-weight: $fw-bold;
+      margin-bottom: $size-3;
+    }
+
+    &Company {
+      display: flex;
+      gap: $size-2;
+      font-family: $mono-font;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: $ls-widest;
+      
+      span:first-child { color: $clr-brand-secondary; }
+      span:last-child { font-style: italic; }
+    }
+
+    &Desc {
+      color: $clr-brand-on-surface-variant;
+      font-size: $fs-base;
+      line-height: $lh-relaxed;
+      margin-bottom: $size-8;
+      max-width: 64rem;
+    }
+
+    &Points {
+      display: flex;
+      flex-direction: column;
+      gap: $size-6;
+      margin-bottom: $size-10;
+    }
+
+    &Point {
+      display: flex;
+      gap: $size-4;
+      font-size: $fs-sm;
+      color: $clr-brand-on-surface-variant;
+      line-height: $lh-relaxed;
+      
+      span { color: $clr-brand-primary; margin-top: 6px; flex-shrink: 0; }
+    }
+  }
+
+  &__skillGrid {
+    display: grid;
+    gap: $size-8;
+    @include mq(md) { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  &__skillCard {
+    @include glass;
+    border-radius: $radius-soft;
+    padding: $size-10;
+    height: 100%;
+
+    &Category {
+      font-size: 10px;
+      font-weight: $fw-bold;
+      letter-spacing: $ls-wide;
+      color: $clr-brand-on-surface-variant;
+      margin-bottom: $size-12;
+      text-transform: uppercase;
+    }
+
+    &Items {
+      display: flex;
+      flex-direction: column;
+      gap: $size-8;
+    }
+
+    &Item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: $size-4;
+      border-bottom: 1px solid rgba(white, 0.05);
+      
+      &:last-child { border-bottom: none; }
+
+      &Name {
+        font-size: 11px;
+        color: $clr-brand-on-surface-variant;
+        text-transform: uppercase;
+        letter-spacing: $ls-widest;
+      }
+      &Val {
+        color: $clr-brand-primary;
+        font-family: $mono-font;
+        font-size: $fs-xs;
+      }
+    }
+  }
+
+  &__eduCard {
+    @include glass;
+    border-radius: $radius-soft;
+    padding: $size-12;
+    
+    &Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: $size-6;
+      
+      h3 { font-size: $fs-3xl; font-weight: $fw-bold; }
+      span { font-family: $mono-font; font-size: $fs-xs; color: $clr-brand-on-surface-variant; text-transform: uppercase; letter-spacing: $ls-widest; }
+    }
+  }
+}

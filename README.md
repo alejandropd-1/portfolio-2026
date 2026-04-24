@@ -1,45 +1,20 @@
-# AleDesign Portfolio 2026 - "The Compiled Soul"
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Portfolio profesional de AleDesign como Senior UI/UX Architect, construido con un enfoque técnico y una estética premium.
+# Run and deploy your AI Studio app
 
-## 🚀 Arquitectura Técnica
+This contains everything you need to run your app locally.
 
-- **Framework:** Next.js 15 (App Router)
-- **Estilos:** SASS Modular (Metodología BEM)
-- **Contenido:** MDX / Markdown (`next-mdx-remote/rsc`)
-- **Dark Mode:** Zero-FOUC mediante SSR y Cookies
+View your app in AI Studio: https://ai.studio/apps/aaa75ee2-794c-44ee-9e30-cfb69a5469d8
 
-## 📦 Estructura del Proyecto
+## Run Locally
 
-```bash
-src/
-├── app/               # Rutas de Next.js 15 (page.js, layout.js)
-├── components/        # Componentes UI reutilizables (BEM)
-├── content/           # Archivos .md y .mdx con la data
-└── styles/            # Sistema SASS modular
-    ├── abstracts/     # Tokens, variables, mixins
-    ├── base/          # Resets, tipografía
-    ├── components/    # Estilos de bloques BEM
-    └── layout/        # Estilos estructurales
-```
+**Prerequisites:**  Node.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

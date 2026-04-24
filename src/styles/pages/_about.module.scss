@@ -1,0 +1,95 @@
+@use "../abstracts" as *;
+
+.about {
+  padding-top: $size-32;
+
+  &__hero {
+    display: grid;
+    gap: $size-20;
+    margin-bottom: $size-40;
+    align-items: start;
+
+    @include mq(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $size-32;
+    }
+  }
+
+  &__title {
+    font-size: $fs-5xl;
+    line-height: 0.9;
+    letter-spacing: $ls-tighter;
+    font-weight: $fw-bold;
+
+    @include mq(md) {
+      font-size: $fs-8xl;
+    }
+
+    span {
+      color: $clr-brand-primary;
+      font-style: italic;
+    }
+  }
+
+  &__accent {
+    width: $size-16;
+    height: 4px;
+    background: rgba($clr-brand-secondary, 0.8);
+    margin-top: $size-12;
+  }
+
+  &__content {
+    @include glass;
+    padding: $size-10;
+    border-radius: $radius-soft;
+    display: flex;
+    flex-direction: column;
+    gap: $size-12;
+    font-size: $fs-lg;
+    color: $clr-brand-on-surface-variant;
+    line-height: $lh-relaxed;
+
+    @include mq(md) {
+      font-size: $fs-xl;
+    }
+  }
+
+  &__philosophyHeader {
+    display: flex;
+    align-items: center;
+    gap: $size-4;
+    margin-bottom: $size-20;
+    
+    span { color: $clr-brand-primary; }
+    h2 { font-size: $fs-4xl; @include mq(md) { font-size: $fs-5xl; } font-weight: $fw-bold; }
+  }
+
+  &__philosophyGrid {
+    display: grid;
+    gap: $size-8;
+
+    @include mq(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__philosophyCard {
+    @include glass;
+    padding: $size-10;
+    border-radius: $radius-soft;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &Icon {
+      margin-bottom: $size-10;
+      padding: $size-3;
+      background: $clr-brand-surface-low;
+      border-radius: $radius-soft;
+      width: fit-content;
+    }
+
+    h3 { font-size: $fs-2xl; font-weight: $fw-bold; margin-bottom: $size-6; }
+    p { font-size: $fs-sm; color: $clr-brand-on-surface-variant; line-height: $lh-relaxed; }
+  }
+}

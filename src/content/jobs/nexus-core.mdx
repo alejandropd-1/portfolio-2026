@@ -1,0 +1,70 @@
+---
+title: "Architecting Trust in Digital Wealth"
+year: "2024.10"
+type: "FINTECH PLATFORM REDESIGN"
+description: "Redesigned the primary data ingestion dashboard for high-frequency trading analysts, optimizing data density and reducing cognitive load."
+stack: ["React", "Tailwind CSS", "Framer Motion", "Zustand"]
+image: "https://picsum.photos/seed/nexus/1920/1080"
+status: "DEPLOYED"
+role: "Lead Designer"
+timeline: "12 Weeks"
+client: "Nexus Financial"
+order: 1
+---
+
+## The Challenge
+
+Nexus Financial approached us with a monolithic legacy system that was alienating their younger demographic. The core challenge was to design an interface that conveyed institutional-grade security while maintaining the fluid, instantaneous feel of modern consumer apps.
+
+We needed to reduce cognitive load on complex portfolio screens without hiding essential market data points.
+
+## The Solution
+
+<div className="grid md:grid-cols-2 gap-8 my-16">
+  <div className="bg-[#021220] border border-white/5 p-8 rounded-sm">
+    <div className="text-primary mb-4 p-2 bg-primary/10 w-fit rounded-sm">
+      {/* Icon placeholder or Lucide component can be injected via MDX components if mapped */}
+      ⟡
+    </div>
+    <h3 className="text-xl bold mb-4">Modular Component Library</h3>
+    <p className="text-sm text-[#6b7c8e] leading-relaxed">
+      Developed a scalable design system using atomic principles, ensuring consistency across 40+ unique financial views.
+    </p>
+  </div>
+  <div className="bg-[#021220] border border-white/5 p-8 rounded-sm">
+    <div className="text-tertiary mb-4 p-2 bg-tertiary/10 w-fit rounded-sm">
+      ⌬
+    </div>
+    <h3 className="text-xl bold mb-4">Performant Data Viz</h3>
+    <p className="text-sm text-[#6b7c8e] leading-relaxed">
+      Replaced heavy DOM-based charts with WebGL canvases, achieving 60fps scrolling even on data-dense portfolio views.
+    </p>
+  </div>
+</div>
+
+### Dark Mode as Default
+
+We pivoted the entire brand aesthetic to a deep, OLED-friendly dark mode. This wasn't just aesthetic; it reduced eye strain for day traders spending 8+ hours in the app, and allowed critical syntax highlights (red/green market indicators) to pop with maximum contrast.
+
+<div className="flex gap-4 my-8">
+  <div className="w-10 h-10 rounded-full bg-[#010c15] border border-white/20"></div>
+  <div className="w-10 h-10 rounded-full bg-[#b6ff54]"></div>
+  <div className="w-10 h-10 rounded-full bg-[#5ed8ff]"></div>
+</div>
+
+## Results
+
+<div className="grid grid-cols-3 gap-8 my-16">
+  <div className="text-center py-10 bg-[#021220] border border-white/5 rounded-sm">
+    <div className="text-4xl bold text-primary mb-2">+45%</div>
+    <div className="text-[10px] uppercase tracking-widest text-[#6b7c8e]">User Retention</div>
+  </div>
+  <div className="text-center py-10 bg-[#021220] border border-white/5 rounded-sm">
+    <div className="text-4xl bold text-tertiary mb-2">-2s</div>
+    <div className="text-[10px] uppercase tracking-widest text-[#6b7c8e]">Load Time</div>
+  </div>
+  <div className="text-center py-10 bg-[#021220] border border-white/5 rounded-sm">
+    <div className="text-4xl bold text-[#fbd065] mb-2">99.9%</div>
+    <div className="text-[10px] uppercase tracking-widest text-[#6b7c8e]">Crash Free</div>
+  </div>
+</div>
