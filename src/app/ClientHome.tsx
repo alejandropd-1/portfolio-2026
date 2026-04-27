@@ -15,9 +15,15 @@ export default function ClientHome({ projects }: { projects: any[] }) {
     <div className="page-container">
       {/* Hero Section */}
       <section className={styles.home__hero}>
-        <div className={styles.home__heroTag}>
+        <div className={styles.home__heroTag} style={{ gap: '12px', marginBottom: '2rem' }}>
           <Folder size={14} />
-          <span>~/root/projects</span>
+          <div>
+            <Link href="/" className="hover:text-primary transition-colors">~</Link>
+            <span className="opacity-50 mx-1">/</span>
+            <Link href="/" className="hover:text-primary transition-colors">root</Link>
+            <span className="opacity-50 mx-1">/</span>
+            <span className="text-primary">projects</span>
+          </div>
         </div>
         
         <h1 className={styles.home__title}>
@@ -26,7 +32,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
         
         <KeyValue 
           k="const mission" 
-          v="Translating complex logic into intuitive human experiences."
+          v="UX/UI designer with over 14 years of experience."
           className="italic"
         />
       </section>
@@ -66,9 +72,17 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                 <Link href={`/projects/${featuredProject.slug}`}>
                   <div className={styles.home__featuredGrid}>
                     <div className={styles.home__featuredImageContainer}>
-                      {featuredProject.image && (
+                      {featuredProject.image ? (
                         <Image 
                           src={featuredProject.image} 
+                          alt={featuredProject.title} 
+                          fill 
+                          className={styles.home__featuredImage}
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <Image 
+                          src="https://picsum.photos/seed/home-main/1920/1080" 
                           alt={featuredProject.title} 
                           fill 
                           className={styles.home__featuredImage}

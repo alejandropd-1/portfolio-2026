@@ -1,4 +1,4 @@
-import { ChevronLeft, Globe, Database, ArrowRight, Code } from 'lucide-react';
+import { Folder, ChevronLeft, Globe, Database, ArrowRight, Code } from 'lucide-react';
 import { Tag } from '@/components/UI';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,15 +22,33 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     return notFound();
   }
 
+  const projects = await loadProjects();
+  const currentIndex = projects.findIndex((p: any) => p.slug === slug);
+  const nextProject = projects[(currentIndex + 1) % projects.length];
+
   const { frontmatter, content } = project;
 
   return (
     <div className={styles.projectDetail}>
       <div className="page-container">
-        {/* Back Link */}
-        <Link href="/" className={styles.projectDetail__backLink}>
-          {"←"} cd .. <span>/</span> <span className={styles.projectDetail__backLinkLabel}>Project Detail</span>
-        </Link>
+        {/* Back Link and Breadcrumb */}
+        <div className="flex items-center justify-between mb-12 mt-8">
+          <Link href="/" className={styles.projectDetail__backLink} style={{marginBottom: 0}}>
+            {"←"} cd .. <span>/</span> <span className={styles.projectDetail__backLinkLabel}>Project Detail</span>
+          </Link>
+          <div className="flex items-center tertiary-text font-mono text-xs font-bold" style={{ gap: '12px' }}>
+            <Folder size={14} />
+            <div>
+              <Link href="/" className="hover:text-primary transition-colors">~</Link>
+              <span className="opacity-50 mx-1">/</span>
+              <Link href="/" className="hover:text-primary transition-colors">root</Link>
+              <span className="opacity-50 mx-1">/</span>
+              <span className="text-primary">projects</span>
+              <span className="opacity-50 mx-1">/</span>
+              <span className="text-primary">{slug}</span>
+            </div>
+          </div>
+        </div>
 
         {/* Header Section */}
         <header className={styles.projectDetail__header}>
@@ -126,9 +144,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                </div>
             </div>
             
-            <button className={styles.projectDetail__nextBtn}>
+            <Link href={`/projects/${nextProject.slug}`} className={styles.projectDetail__nextBtn}>
                NEXT PROJECT <ArrowRight size={18} />
-            </button>
+            </Link>
           </aside>
         </div>
       </div>
