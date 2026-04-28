@@ -142,13 +142,13 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
   return (
     <div className="page-container">
       <div className={styles.resume}>
-        <div className="flex items-center tertiary-text mb-12 mt-8 font-mono text-xs font-bold print:hidden" style={{ gap: '12px' }}>
+        <div className={styles.resume__breadcrumb + " print:hidden"}>
           <Folder size={14} />
-          <div>
+          <div className="flex items-center">
             <Link href="/" className="hover:text-primary transition-colors">~</Link>
-            <span className="opacity-50 mx-1">/</span>
+            <span className="opacity-50 mx-2">/</span>
             <Link href="/" className="hover:text-primary transition-colors">root</Link>
-            <span className="opacity-50 mx-1">/</span>
+            <span className="opacity-50 mx-2">/</span>
             <span className="text-primary">resume</span>
           </div>
         </div>

@@ -17,11 +17,11 @@ export default function ClientHome({ projects }: { projects: any[] }) {
       <section className={styles.home__hero}>
         <div className={styles.home__heroTag} style={{ gap: '12px', marginBottom: '2rem' }}>
           <Folder size={14} />
-          <div>
+          <div className="flex items-center">
             <Link href="/" className="hover:text-primary transition-colors">~</Link>
-            <span className="opacity-50 mx-1">/</span>
+            <span className="opacity-50 mx-2">/</span>
             <Link href="/" className="hover:text-primary transition-colors">root</Link>
-            <span className="opacity-50 mx-1">/</span>
+            <span className="opacity-50 mx-2">/</span>
             <span className="text-primary">projects</span>
           </div>
         </div>

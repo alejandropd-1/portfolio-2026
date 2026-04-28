@@ -1,6 +1,18 @@
 @use "../abstracts" as *;
 
 .resume {
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: $size-3;
+    color: $clr-brand-tertiary;
+    padding-top: $size-20;
+    padding-bottom: $size-8;
+    font-family: $mono-font;
+    font-size: $fs-xs;
+    font-weight: $fw-bold;
+  }
+
   &__search {
     max-width: 64rem;
     margin: 0 auto $size-32;

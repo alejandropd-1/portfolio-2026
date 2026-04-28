@@ -32,21 +32,16 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     <div className={styles.projectDetail}>
       <div className="page-container">
         {/* Back Link and Breadcrumb */}
-        <div className="flex items-center justify-between mb-12 mt-8">
-          <Link href="/" className={styles.projectDetail__backLink} style={{marginBottom: 0}}>
-            {"←"} cd .. <span>/</span> <span className={styles.projectDetail__backLinkLabel}>Project Detail</span>
-          </Link>
-          <div className="flex items-center tertiary-text font-mono text-xs font-bold" style={{ gap: '12px' }}>
-            <Folder size={14} />
-            <div>
-              <Link href="/" className="hover:text-primary transition-colors">~</Link>
-              <span className="opacity-50 mx-1">/</span>
-              <Link href="/" className="hover:text-primary transition-colors">root</Link>
-              <span className="opacity-50 mx-1">/</span>
-              <span className="text-primary">projects</span>
-              <span className="opacity-50 mx-1">/</span>
-              <span className="text-primary">{slug}</span>
-            </div>
+        <div className={styles.projectDetail__breadcrumb + " print:hidden"}>
+          <Folder size={14} />
+          <div className="flex items-center">
+            <Link href="/" className="hover:text-primary transition-colors">~</Link>
+            <span className="opacity-50 mx-2">/</span>
+            <Link href="/" className="hover:text-primary transition-colors">root</Link>
+            <span className="opacity-50 mx-2">/</span>
+            <span className="text-primary">projects</span>
+            <span className="opacity-50 mx-2">/</span>
+            <span className="text-primary">{slug}</span>
           </div>
         </div>
 

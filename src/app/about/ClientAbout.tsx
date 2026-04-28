@@ -30,13 +30,13 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
       <div className={styles.about}>
         <section className={styles.about__hero}>
           <div>
-            <div className="flex items-center tertiary-text mb-12 mt-8 font-mono text-xs font-bold print:hidden" style={{ gap: '12px' }}>
+            <div className={styles.about__breadcrumb + " print:hidden"}>
               <Folder size={14} />
-              <div>
+              <div className="flex items-center">
                 <Link href="/" className="hover:text-primary transition-colors">~</Link>
-                <span className="opacity-50 mx-1">/</span>
+                <span className="opacity-50 mx-2">/</span>
                 <Link href="/" className="hover:text-primary transition-colors">root</Link>
-                <span className="opacity-50 mx-1">/</span>
+                <span className="opacity-50 mx-2">/</span>
                 <span className="text-primary">about</span>
               </div>
             </div>
