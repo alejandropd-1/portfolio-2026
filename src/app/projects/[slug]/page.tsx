@@ -1,4 +1,4 @@
-import { ChevronLeft, Globe, Database, ArrowRight, Code } from 'lucide-react';
+import { Folder, ChevronLeft, Globe, Database, ArrowRight, Code } from 'lucide-react';
 import { Tag } from '@/components/UI';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import { loadProject, loadProjects } from '@/helpers/file-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/pages/_project-detail.module.scss';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export async function generateStaticParams() {
   const projects = await loadProjects();
@@ -22,15 +23,17 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     return notFound();
   }
 
+  const projects = await loadProjects();
+  const currentIndex = projects.findIndex((p: any) => p.slug === slug);
+  const nextProject = projects[(currentIndex + 1) % projects.length];
+
   const { frontmatter, content } = project;
 
   return (
     <div className={styles.projectDetail}>
       <div className="page-container">
-        {/* Back Link */}
-        <Link href="/" className={styles.projectDetail__backLink}>
-          {"←"} cd .. <span>/</span> <span className={styles.projectDetail__backLinkLabel}>Project Detail</span>
-        </Link>
+        {/* Back Link and Breadcrumb */}
+        <Breadcrumb paths={['projects', slug]} />
 
         {/* Header Section */}
         <header className={styles.projectDetail__header}>
@@ -126,9 +129,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                </div>
             </div>
             
-            <button className={styles.projectDetail__nextBtn}>
+            <Link href={`/projects/${nextProject.slug}`} className={styles.projectDetail__nextBtn}>
                NEXT PROJECT <ArrowRight size={18} />
-            </button>
+            </Link>
           </aside>
         </div>
       </div>

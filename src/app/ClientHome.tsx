@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/pages/_home.module.scss';
 import { clsx } from 'clsx';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export default function ClientHome({ projects }: { projects: any[] }) {
   const featuredProject = projects[0];
@@ -15,10 +16,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
     <div className="page-container">
       {/* Hero Section */}
       <section className={styles.home__hero}>
-        <div className={styles.home__heroTag}>
-          <Folder size={14} />
-          <span>~/root/projects</span>
-        </div>
+        <Breadcrumb paths={['projects']} />
         
         <h1 className={styles.home__title}>
           Compiled <span>Visions.</span>
@@ -26,7 +24,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
         
         <KeyValue 
           k="const mission" 
-          v="Translating complex logic into intuitive human experiences."
+          v="UX/UI designer with over 14 years of experience."
           className="italic"
         />
       </section>
@@ -66,9 +64,17 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                 <Link href={`/projects/${featuredProject.slug}`}>
                   <div className={styles.home__featuredGrid}>
                     <div className={styles.home__featuredImageContainer}>
-                      {featuredProject.image && (
+                      {featuredProject.image ? (
                         <Image 
                           src={featuredProject.image} 
+                          alt={featuredProject.title} 
+                          fill 
+                          className={styles.home__featuredImage}
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <Image 
+                          src="https://picsum.photos/seed/home-main/1920/1080" 
                           alt={featuredProject.title} 
                           fill 
                           className={styles.home__featuredImage}

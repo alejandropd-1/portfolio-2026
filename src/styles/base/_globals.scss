@@ -2,33 +2,35 @@
 @use "../abstracts" as *;
 
 :root {
-  --clr-brand-surface-rgb: 1, 12, 21;
-  --clr-brand-surface-low-rgb: 2, 18, 32;
-  --clr-brand-on-surface-rgb: 241, 247, 254;
-  --clr-brand-on-surface-variant-rgb: 107, 124, 142;
-  --clr-brand-primary-rgb: 182, 255, 84;
-  --clr-brand-secondary-rgb: 253, 157, 26;
-  --clr-brand-tertiary-rgb: 94, 216, 255;
+  // Dark Theme (Default)
+  --clr-brand-surface-rgb: 13, 19, 28;         // #0D131C (Surface base)
+  --clr-brand-surface-low-rgb: 21, 27, 36;     // #151B24 (Surface Container Low)
+  --clr-brand-on-surface-rgb: 217, 231, 252;   // #D9E7FC (Text)
+  --clr-brand-on-surface-variant-rgb: 158, 172, 192; // #9EACC0 (Muted Text)
+  --clr-brand-primary-rgb: 176, 255, 146;      // #B0FF92 (Neon Green)
+  --clr-brand-secondary-rgb: 255, 159, 28;     // #FF9F1C (Flame Orange)
+  --clr-brand-tertiary-rgb: 76, 201, 240;      // #4CC9F0 (Cyan)
 
   --clr-brand-surface: rgb(var(--clr-brand-surface-rgb));
   --clr-brand-surface-low: rgb(var(--clr-brand-surface-low-rgb));
   --clr-brand-on-surface: rgb(var(--clr-brand-on-surface-rgb));
   --clr-brand-on-surface-variant: rgb(var(--clr-brand-on-surface-variant-rgb));
   --clr-brand-primary: rgb(var(--clr-brand-primary-rgb));
-  --clr-brand-on-primary: var(--clr-brand-surface);
+  --clr-brand-on-primary: #145b00;
   --clr-brand-secondary: rgb(var(--clr-brand-secondary-rgb));
   --clr-brand-tertiary: rgb(var(--clr-brand-tertiary-rgb));
-  --clr-brand-danger: #ef4444;
+  --clr-brand-danger: #ff716c;
 }
 
 .light {
-  --clr-brand-surface-rgb: 248, 250, 252;
-  --clr-brand-surface-low-rgb: 255, 255, 255;
-  --clr-brand-on-surface-rgb: 15, 23, 42;
-  --clr-brand-on-surface-variant-rgb: 71, 85, 105;
-  --clr-brand-primary-rgb: 37, 99, 235;
-  --clr-brand-secondary-rgb: 147, 51, 234;
-  --clr-brand-tertiary-rgb: 6, 182, 212;
+  // Light Theme (Editorial Soft Blue)
+  --clr-brand-surface-rgb: 220, 232, 248;     // Soft Blue background (less bright)
+  --clr-brand-surface-low-rgb: 241, 247, 254; // Slightly lighter for containers
+  --clr-brand-on-surface-rgb: 73, 86, 103;    // #495667 (Inverse On Surface)
+  --clr-brand-on-surface-variant-rgb: 105, 119, 137; // #697789 (Outline/Muted)
+  --clr-brand-primary-rgb: 38, 109, 17;       // #266D11 (Deep Green for readability)
+  --clr-brand-secondary-rgb: 137, 81, 0;      // #895100 (Deep Orange)
+  --clr-brand-tertiary-rgb: 0, 72, 90;        // #00485A (Deep Cyan)
 
   --clr-brand-surface: rgb(var(--clr-brand-surface-rgb));
   --clr-brand-surface-low: rgb(var(--clr-brand-surface-low-rgb));

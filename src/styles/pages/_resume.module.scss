@@ -114,23 +114,15 @@
     margin-bottom: $size-32;
 
     h1 {
-      font-size: $fs-5xl;
-      line-height: 0.9;
-      letter-spacing: $ls-tighter;
+      @include page-title;
       margin-bottom: $size-8;
-
-      @include mq(md) { font-size: $fs-8xl; }
       
       span { color: $clr-brand-primary; }
     }
   }
 
   &__subtitle {
-    font-size: $fs-xl;
-    @include mq(md) { font-size: $fs-2xl; }
-    color: $clr-brand-on-surface-variant;
-    max-width: 48rem;
-    line-height: $lh-relaxed;
+    @include page-subtitle;
     margin-bottom: $size-12;
   }
 

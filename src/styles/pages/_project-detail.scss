@@ -1,9 +1,0 @@
-@use "../abstracts" as *;
-.project-detail {
-  &__title {
-    font-size: clamp(3.75rem, 8vw, 8rem);
-    font-weight: $fw-bold;
-    letter-spacing: $ls-tighter;
-    line-height: 0.9;
-  }
-}
