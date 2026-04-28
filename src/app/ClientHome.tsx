@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/pages/_home.module.scss';
 import { clsx } from 'clsx';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export default function ClientHome({ projects }: { projects: any[] }) {
   const featuredProject = projects[0];
@@ -15,16 +16,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
     <div className="page-container">
       {/* Hero Section */}
       <section className={styles.home__hero}>
-        <div className={styles.home__heroTag} style={{ gap: '12px', marginBottom: '2rem' }}>
-          <Folder size={14} />
-          <div className="flex items-center">
-            <Link href="/" className="hover:text-primary transition-colors">~</Link>
-            <span className="opacity-50 mx-2">/</span>
-            <Link href="/" className="hover:text-primary transition-colors">root</Link>
-            <span className="opacity-50 mx-2">/</span>
-            <span className="text-primary">projects</span>
-          </div>
-        </div>
+        <Breadcrumb paths={['projects']} />
         
         <h1 className={styles.home__title}>
           Compiled <span>Visions.</span>

@@ -5,6 +5,7 @@ import { Folder, Beaker, Settings, Monitor } from 'lucide-react';
 import Link from 'next/link';
 import { SyntaxCard, KeyValue } from '@/components/UI';
 import styles from '@/styles/pages/_about.module.scss';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const philosophies = [
   {
@@ -28,18 +29,10 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
   return (
     <div className="page-container">
       <div className={styles.about}>
+        <Breadcrumb paths={['about']} />
         <section className={styles.about__hero}>
           <div>
-            <div className={styles.about__breadcrumb + " print:hidden"}>
-              <Folder size={14} />
-              <div className="flex items-center">
-                <Link href="/" className="hover:text-primary transition-colors">~</Link>
-                <span className="opacity-50 mx-2">/</span>
-                <Link href="/" className="hover:text-primary transition-colors">root</Link>
-                <span className="opacity-50 mx-2">/</span>
-                <span className="text-primary">about</span>
-              </div>
-            </div>
+
             <div className="tertiary-text font-mono text-xs mb-8 flex items-center gap-2">
               <span className="primary-text">{"//"}</span> THE ARCHITECT
             </div>
@@ -59,7 +52,7 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
                 By treating design systems as code bases and user flows as algorithms, I build digital experiences that feel intuitive to the user and maintainable for the development team. The aesthetic is merely the terminal output of a deeply considered structural logic.
               </p>
             </div>
-            
+
             <div className={`pt-10 border-t border-[rgba(var(--clr-brand-on-surface-rgb),0.05)]`}>
               <KeyValue k="Location =" v='"Global_Remote";' className="text-sm font-mono" />
             </div>

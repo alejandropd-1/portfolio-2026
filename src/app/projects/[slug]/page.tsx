@@ -6,6 +6,7 @@ import { loadProject, loadProjects } from '@/helpers/file-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/pages/_project-detail.module.scss';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export async function generateStaticParams() {
   const projects = await loadProjects();
@@ -32,18 +33,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     <div className={styles.projectDetail}>
       <div className="page-container">
         {/* Back Link and Breadcrumb */}
-        <div className={styles.projectDetail__breadcrumb + " print:hidden"}>
-          <Folder size={14} />
-          <div className="flex items-center">
-            <Link href="/" className="hover:text-primary transition-colors">~</Link>
-            <span className="opacity-50 mx-2">/</span>
-            <Link href="/" className="hover:text-primary transition-colors">root</Link>
-            <span className="opacity-50 mx-2">/</span>
-            <span className="text-primary">projects</span>
-            <span className="opacity-50 mx-2">/</span>
-            <span className="text-primary">{slug}</span>
-          </div>
-        </div>
+        <Breadcrumb paths={['projects', slug]} />
 
         {/* Header Section */}
         <header className={styles.projectDetail__header}>

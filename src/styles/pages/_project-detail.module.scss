@@ -1,19 +1,6 @@
 @use "../abstracts" as *;
 
 .projectDetail {
-  padding-top: $size-20;
-
-  &__breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: $size-3;
-    color: $clr-brand-tertiary;
-    padding-top: $size-20;
-    padding-bottom: $size-8;
-    font-family: $mono-font;
-    font-size: $fs-xs;
-    font-weight: $fw-bold;
-  }
 
   &__backLink {
     display: inline-flex;
@@ -75,13 +62,7 @@
   }
 
   &__title {
-    font-size: $fs-5xl;
-    line-height: 0.9;
-    letter-spacing: $ls-tighter;
-
-    @include mq(md) {
-      font-size: $fs-8xl;
-    }
+    @include page-title;
 
     span {
       color: $clr-brand-primary;
@@ -151,7 +132,7 @@
   &__hero {
     margin-bottom: $size-32;
     position: relative;
-    
+
     &:hover .heroImage {
       transform: scale(1.05);
     }
@@ -217,14 +198,14 @@
     @include mq(lg) {
       grid-column: span 8;
     }
-    
+
     // Prosa styles for MDX
     h2 { font-size: $fs-3xl; margin-top: $size-12; margin-bottom: $size-6; }
     h3 { font-size: $fs-2xl; margin-top: $size-10; margin-bottom: $size-4; }
     p { font-size: $fs-base; line-height: 1.8; color: $clr-brand-on-surface-variant; margin-bottom: $size-6; }
     ul { list-style: disc; margin-left: $size-6; margin-bottom: $size-6; }
     li { margin-bottom: $size-2; color: $clr-brand-on-surface-variant; }
-    
+
     pre {
       @include glass;
       padding: $size-6;
@@ -235,7 +216,7 @@
       font-family: $mono-font;
       color: $clr-brand-tertiary;
     }
-    
+
     code {
       font-family: $mono-font;
       background: rgba(white, 0.05);
@@ -250,7 +231,7 @@
       margin: $size-8 0;
       font-style: normal;
       color: $clr-brand-on-surface;
-      
+
       p {
         color: $clr-brand-on-surface;
         opacity: 0.9;
@@ -294,7 +275,7 @@
     font-family: $mono-font;
     font-size: 10px;
     color: $clr-brand-on-surface-variant;
-    
+
     &::before {
       content: "";
       display: inline-block;
@@ -355,7 +336,7 @@
 
     &:hover {
       filter: brightness(1.1);
-      
+
       svg {
         transform: translateX(4px);
       }

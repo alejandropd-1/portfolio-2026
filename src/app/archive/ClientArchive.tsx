@@ -6,21 +6,13 @@ import { Tag } from '@/components/UI';
 import styles from '@/styles/pages/_archive.module.scss';
 import { clsx } from 'clsx';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export default function ClientArchive({ projects }: { projects: any[] }) {
   return (
     <div className="page-container">
       <header className={styles.archive__header}>
-         <div className={styles.archive__breadcrumb + " print:hidden"}>
-            <Folder size={14} />
-            <div className="flex items-center">
-              <Link href="/" className="hover:text-primary transition-colors">~</Link>
-              <span className="opacity-50 mx-2">/</span>
-              <Link href="/" className="hover:text-primary transition-colors">root</Link>
-              <span className="opacity-50 mx-2">/</span>
-              <span className="text-primary">archive</span>
-            </div>
-         </div>
+         <Breadcrumb paths={['archive']} />
          <h1 className={styles.archive__title}>
             <span>{"//"}</span> Project Archive
          </h1>

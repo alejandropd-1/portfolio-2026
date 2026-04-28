@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { SyntaxCard, Tag, KeyValue } from '@/components/UI';
 import styles from '@/styles/pages/_resume.module.scss';
 import { clsx } from 'clsx';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const experiences = [
   {
@@ -142,16 +143,7 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
   return (
     <div className="page-container">
       <div className={styles.resume}>
-        <div className={styles.resume__breadcrumb + " print:hidden"}>
-          <Folder size={14} />
-          <div className="flex items-center">
-            <Link href="/" className="hover:text-primary transition-colors">~</Link>
-            <span className="opacity-50 mx-2">/</span>
-            <Link href="/" className="hover:text-primary transition-colors">root</Link>
-            <span className="opacity-50 mx-2">/</span>
-            <span className="text-primary">resume</span>
-          </div>
-        </div>
+        <Breadcrumb paths={['resume']} />
 
         {/* Search Bar Section */}
         <section className={styles.resume__search}>

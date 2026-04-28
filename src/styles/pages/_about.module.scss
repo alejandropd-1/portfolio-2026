@@ -1,18 +1,6 @@
 @use "../abstracts" as *;
 
 .about {
-  &__breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: $size-3;
-    color: $clr-brand-tertiary;
-    padding-top: $size-20;
-    padding-bottom: $size-8;
-    font-family: $mono-font;
-    font-size: $fs-xs;
-    font-weight: $fw-bold;
-  }
-
   &__hero {
     display: grid;
     gap: $size-20;
@@ -26,14 +14,7 @@
   }
 
   &__title {
-    font-size: $fs-5xl;
-    line-height: 0.9;
-    letter-spacing: $ls-tighter;
-    font-weight: $fw-bold;
-
-    @include mq(md) {
-      font-size: $fs-8xl;
-    }
+    @include page-title;
 
     span {
       color: $clr-brand-primary;

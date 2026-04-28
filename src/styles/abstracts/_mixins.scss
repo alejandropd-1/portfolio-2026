@@ -1,6 +1,8 @@
 // src/styles/abstracts/_mixins.scss
 @use "colors" as *;
 @use "sizes" as *;
+@use "typography" as *;
+@use "breakpoints" as *;
 
 @mixin glass {
   background: rgba(var(--clr-brand-surface-rgb), 0.5);
@@ -22,4 +24,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin page-title {
+  font-size: $fs-5xl;
+  font-weight: $fw-bold;
+  line-height: 0.9;
+  letter-spacing: $ls-tighter;
+
+  @include mq(md) {
+    font-size: $fs-8xl;
+  }
+}
+
+@mixin page-subtitle {
+  font-size: $fs-xl;
+  color: $clr-brand-on-surface-variant;
+  max-width: 48rem;
+  line-height: $lh-relaxed;
+
+  @include mq(md) {
+    font-size: $fs-2xl;
+  }
 }

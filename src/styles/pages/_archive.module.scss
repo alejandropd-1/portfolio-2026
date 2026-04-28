@@ -1,31 +1,13 @@
 @use "../abstracts" as *;
 
 .archive {
-  &__breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: $size-3;
-    color: $clr-brand-tertiary;
-    padding-top: $size-20;
-    padding-bottom: $size-8;
-    font-family: $mono-font;
-    font-size: $fs-xs;
-    font-weight: $fw-bold;
-  }
-
   &__header {
     margin-bottom: $size-24;
   }
 
   &__title {
-    font-size: $fs-5xl;
-    line-height: 0.9;
-    letter-spacing: $ls-tighter;
+    @include page-title;
     margin-bottom: $size-6;
-    
-    @include mq(md) {
-      font-size: $fs-8xl;
-    }
     
     span {
       font-style: italic;
@@ -34,17 +16,10 @@
   }
 
   &__subtitle {
-    font-size: $fs-xl;
-    color: $clr-brand-on-surface-variant;
-    max-width: 48rem;
-    line-height: $lh-relaxed;
+    @include page-subtitle;
     @include glass;
     padding: $size-6;
     border-color: rgba(var(--clr-brand-primary-rgb), 0.5);
-
-    @include mq(md) {
-      font-size: $fs-2xl;
-    }
   }
 
   &__table {
