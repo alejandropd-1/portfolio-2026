@@ -2,7 +2,8 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, Download, ChevronRight, Check, X } from 'lucide-react';
+import { Search, Download, ChevronRight, Check, X, Folder } from 'lucide-react';
+import Link from 'next/link';
 import { SyntaxCard, Tag, KeyValue } from '@/components/UI';
 import styles from '@/styles/pages/_resume.module.scss';
 import { clsx } from 'clsx';
@@ -56,7 +57,18 @@ const skills = [
   ]}
 ];
 
-export default function ClientResume({ frontmatter, content }: { frontmatter: any, content: string }) {
+export default function ClientResume({ frontmatter, content, jobs }: { frontmatter: any, content: string, jobs: any[] }) {
+  const experiences = useMemo(() => {
+    return jobs.map(job => ({
+      role: job.role || job.title,
+      company: job.client,
+      period: job.year,
+      description: job.description,
+      stack: job.stack || [],
+      type: job.type
+    }));
+  }, [jobs]);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [mounted, setMounted] = useState(false);
@@ -99,11 +111,48 @@ export default function ClientResume({ frontmatter, content }: { frontmatter: an
     setActiveTags([]);
   };
 
+  const downloadATS = () => {
+    let cvContent = `ALEXANDRO DELGADO - UX/UI Web Designer\n\n`;
+    cvContent += `Location: Buenos Aires, Argentina\nEmail: hello@aledesign.com\n\n`;
+    cvContent += `EXPERIENCE\n\n`;
+    
+    filteredExperiences.forEach(exp => {
+      cvContent += `${exp.role} at ${exp.company} (${exp.period})\n`;
+      if (exp.type) cvContent += `Type: ${exp.type}\n`;
+      if (exp.description) cvContent += `${exp.description}\n`;
+      if (exp.stack && exp.stack.length > 0) cvContent += `Tech Stack: ${exp.stack.join(', ')}\n`;
+      cvContent += `\n`;
+    });
+
+    const blob = new Blob([cvContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Alejandro_Delgado_ATS_CV.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadCustom = () => {
+    window.print();
+  };
+
   if (!mounted) return null;
 
   return (
     <div className="page-container">
       <div className={styles.resume}>
+        <div className="flex items-center tertiary-text mb-12 mt-8 font-mono text-xs font-bold print:hidden" style={{ gap: '12px' }}>
+          <Folder size={14} />
+          <div>
+            <Link href="/" className="hover:text-primary transition-colors">~</Link>
+            <span className="opacity-50 mx-1">/</span>
+            <Link href="/" className="hover:text-primary transition-colors">root</Link>
+            <span className="opacity-50 mx-1">/</span>
+            <span className="text-primary">resume</span>
+          </div>
+        </div>
+
         {/* Search Bar Section */}
         <section className={styles.resume__search}>
           <p className={styles.resume__searchLabel}>Refine your search</p>
@@ -131,10 +180,10 @@ export default function ClientResume({ frontmatter, content }: { frontmatter: an
               )}
             </div>
             <div className={styles.resume__downloads}>
-               <button className={styles.resume__downloadBtn}>
+               <button className={styles.resume__downloadBtn} onClick={downloadATS}>
                   <Download size={14} /> ATS CV
                </button>
-               <button className={styles.resume__downloadBtn}>
+               <button className={styles.resume__downloadBtn} onClick={downloadCustom}>
                   <Download size={14} /> CUSTOM CV
                </button>
             </div>
@@ -144,7 +193,7 @@ export default function ClientResume({ frontmatter, content }: { frontmatter: an
         {/* Main Resume Heading */}
         <header className={styles.resume__hero}>
           <h1>
-            Senior UI/UX <span>Architect</span>
+            UX/UI <span>Web Designer</span>
           </h1>
           <p className={styles.resume__subtitle}>
             Bridging the gap between conceptual editorial design and robust front-end architectures. Specializing in design systems and high-fidelity prototypes.

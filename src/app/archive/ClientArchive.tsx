@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ExternalLink, Code } from 'lucide-react';
+import { Folder, ExternalLink, Code } from 'lucide-react';
 import { Tag } from '@/components/UI';
 import styles from '@/styles/pages/_archive.module.scss';
 import { clsx } from 'clsx';
@@ -11,6 +11,16 @@ export default function ClientArchive({ projects }: { projects: any[] }) {
   return (
     <div className="page-container">
       <header className={styles.archive__header}>
+         <div className="flex items-center tertiary-text mb-12 mt-8 font-mono text-xs font-bold print:hidden" style={{ gap: '12px' }}>
+            <Folder size={14} />
+            <div>
+              <Link href="/" className="hover:text-primary transition-colors">~</Link>
+              <span className="opacity-50 mx-1">/</span>
+              <Link href="/" className="hover:text-primary transition-colors">root</Link>
+              <span className="opacity-50 mx-1">/</span>
+              <span className="text-primary">archive</span>
+            </div>
+         </div>
          <h1 className={styles.archive__title}>
             <span>{"//"}</span> Project Archive
          </h1>

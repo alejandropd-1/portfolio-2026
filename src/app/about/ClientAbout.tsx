@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Beaker, Settings, Monitor } from 'lucide-react';
+import { Folder, Beaker, Settings, Monitor } from 'lucide-react';
+import Link from 'next/link';
 import { SyntaxCard, KeyValue } from '@/components/UI';
 import styles from '@/styles/pages/_about.module.scss';
 
@@ -29,6 +30,16 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
       <div className={styles.about}>
         <section className={styles.about__hero}>
           <div>
+            <div className="flex items-center tertiary-text mb-12 mt-8 font-mono text-xs font-bold print:hidden" style={{ gap: '12px' }}>
+              <Folder size={14} />
+              <div>
+                <Link href="/" className="hover:text-primary transition-colors">~</Link>
+                <span className="opacity-50 mx-1">/</span>
+                <Link href="/" className="hover:text-primary transition-colors">root</Link>
+                <span className="opacity-50 mx-1">/</span>
+                <span className="text-primary">about</span>
+              </div>
+            </div>
             <div className="tertiary-text font-mono text-xs mb-8 flex items-center gap-2">
               <span className="primary-text">{"//"}</span> THE ARCHITECT
             </div>
