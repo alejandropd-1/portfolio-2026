@@ -1,16 +1,16 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styles from '../styles/components/_ui.module.scss';
 import { clsx } from 'clsx';
 
-interface SyntaxCardProps {
+interface SyntaxCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   label?: string;
 }
 
-export function SyntaxCard({ children, className = "", label }: SyntaxCardProps) {
+export function SyntaxCard({ children, className = "", label, ...rest }: SyntaxCardProps) {
   return (
-    <div className={clsx(styles.syntaxCard, className)}>
+    <div className={clsx(styles.syntaxCard, className)} {...rest}>
       {label && (
         <div className={styles.syntaxCard__label}>
           <span>#</span> {label}

@@ -78,7 +78,7 @@
   }
 
   &__meta {
-    @include glass;
+    @include glass("--clr-brand-primary-rgb", 45deg);
     padding: $size-8;
     display: flex;
     flex-direction: column;
@@ -207,7 +207,7 @@
     li { margin-bottom: $size-2; color: $clr-brand-on-surface-variant; }
 
     pre {
-      @include glass;
+      @include glass("--clr-brand-tertiary-rgb", 135deg);
       padding: $size-6;
       border-radius: $radius-soft;
       overflow-x: auto;
@@ -259,7 +259,7 @@
   }
 
   &__stickyCard {
-    @include glass;
+    @include glass("--clr-brand-secondary-rgb", 215deg);
     border-radius: $radius-soft;
     overflow: hidden;
     margin-bottom: $size-12;

@@ -10,16 +10,19 @@ import Breadcrumb from '@/components/Breadcrumb';
 const philosophies = [
   {
     icon: <Beaker size={24} className="secondary-text" />,
+    accent: 'secondary',
     title: 'Atomic Principles',
     description: 'Interfaces must be broken down into their smallest possible components. Build the molecule, then the organism. Consistency arises from rigorous modularity.'
   },
   {
     icon: <Settings size={24} className="tertiary-text" />,
+    accent: 'tertiary',
     title: 'Data-Driven Empathy',
     description: 'Aesthetics without analytics is just decoration. Decisions must be anchored in user behavioral data, transforming subjective opinions into objective truths.'
   },
   {
     icon: <Monitor size={24} className="primary-text" />,
+    accent: 'primary',
     title: 'Technical Feasibility',
     description: 'A design is only as good as its implementation. Designing with a deep understanding of CSS, React, and layout engines ensures the vision survives production.'
   }
@@ -74,7 +77,7 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <SyntaxCard className={styles.about__philosophyCard}>
+                <SyntaxCard className={styles.about__philosophyCard} data-accent={item.accent}>
                   <div className={styles.about__philosophyCardIcon}>{item.icon}</div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>

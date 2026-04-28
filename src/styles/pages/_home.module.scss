@@ -28,7 +28,7 @@
     @include mq(lg) {
       grid-column: span 3;
     }
-    
+
     display: flex;
     flex-direction: column;
     gap: $size-12;
@@ -38,7 +38,7 @@
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
-      
+
       div[class*="syntaxCard__label"] {
         top: -10px;
         left: 0;
@@ -51,7 +51,7 @@
     @include mq(lg) {
       grid-column: span 9;
     }
-    
+
     display: flex;
     flex-direction: column;
     gap: $size-12;
@@ -83,16 +83,15 @@
   }
 
   &__featured {
-    @include glass;
+    @include glass("--clr-brand-tertiary-rgb", 135deg);
     padding: 0;
     overflow: hidden;
     cursor: pointer;
-    border-color: transparent;
     transition: all 0.3s ease;
 
     &:hover {
       border-color: rgba(var(--clr-brand-primary-rgb), 0.1);
-      
+
       .featuredImage {
         transform: scale(1.03);
       }
@@ -111,7 +110,7 @@
     overflow: hidden;
     background: $clr-brand-surface-low;
     aspect-ratio: 4 / 3;
-    
+
     @include mq(md) {
       aspect-ratio: auto;
     }
@@ -145,7 +144,7 @@
     text-transform: uppercase;
     letter-spacing: $ls-widest;
     margin-bottom: $size-4;
-    
+
     span {
       opacity: 0.6;
     }
@@ -186,25 +185,27 @@
   &__projectGrid {
     display: grid;
     gap: $size-12;
-    
+
     @include mq(md) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__projectCard {
-    background: rgba(var(--clr-brand-surface-low-rgb), 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: $radius-soft;
     padding: 0;
     height: 100%;
     display: flex;
     flex-direction: column;
 
+    &:nth-child(3n+1) { @include glass("--clr-brand-primary-rgb", 45deg); }
+    &:nth-child(3n+2) { @include glass("--clr-brand-secondary-rgb", 135deg); }
+    &:nth-child(3n+3) { @include glass("--clr-brand-tertiary-rgb", 225deg); }
+
     &:hover {
       border-color: rgba(var(--clr-brand-primary-rgb), 0.3);
       transform: translateY(-2px);
-      
+
       .home__projectCardTitle {
         color: $clr-brand-primary;
       }
@@ -235,7 +236,7 @@
       flex-direction: column;
       justify-content: end;
       overflow: hidden;
-      
+
       pre {
         font-size: 10px;
         color: $clr-brand-tertiary;
