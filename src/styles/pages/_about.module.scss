@@ -39,6 +39,39 @@
     font-size: $fs-lg;
     color: $clr-brand-on-surface-variant;
     line-height: $lh-relaxed;
+    position: relative;
+
+&::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('/grain.png');
+      background-repeat: repeat;
+      background-size: 100px;
+      opacity: 0.3;
+      mix-blend-mode: hard-light;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: inherit;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('/banner-background.png');
+      backdrop-filter: saturate(150%) blur(25px);
+      background-color: #0a151f40;
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.40;
+    }
+
+    // Ensure text nodes/children are above grain
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
 
     @include mq(md) {
       font-size: $fs-xl;
@@ -50,7 +83,7 @@
     align-items: center;
     gap: $size-4;
     margin-bottom: $size-20;
-    
+
     span { color: $clr-brand-primary; }
     h2 { font-size: $fs-4xl; @include mq(md) { font-size: $fs-5xl; } font-weight: $fw-bold; }
   }
@@ -65,6 +98,7 @@
   }
 
   &__philosophyCard {
+
     padding: $size-10;
     border-radius: $radius-soft;
     height: 100%;
@@ -77,7 +111,35 @@
     &[data-accent="tertiary"]  { @include glass("--clr-brand-tertiary-rgb", 215deg); }
     &[data-accent="primary"]   { @include glass("--clr-brand-primary-rgb", 45deg); }
 
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('/grain.png');
+      background-repeat: repeat;
+      background-size: 100px;
+      opacity: 0.3;
+      mix-blend-mode: hard-light;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: inherit;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('/banner-background.png');
+      backdrop-filter: saturate(150%) blur(25px);
+      background-color: #0a151f40;
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.40;
+    }
+
     &Icon {
+      position: relative;
+      z-index: 1;
       margin-bottom: $size-10;
       padding: $size-3;
       background: $clr-brand-surface-low;
@@ -85,7 +147,7 @@
       width: fit-content;
     }
 
-    h3 { font-size: $fs-2xl; font-weight: $fw-bold; margin-bottom: $size-6; }
-    p { font-size: $fs-sm; color: $clr-brand-on-surface-variant; line-height: $lh-relaxed; }
+    h3 { position: relative; z-index: 1; font-size: $fs-2xl; font-weight: $fw-bold; margin-bottom: $size-6; }
+    p { position: relative; z-index: 1; font-size: $fs-sm; color: $clr-brand-on-surface-variant; line-height: $lh-relaxed; }
   }
 }
