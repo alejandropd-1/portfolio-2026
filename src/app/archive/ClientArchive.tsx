@@ -14,8 +14,11 @@ export default function ClientArchive({ projects }: { projects: any[] }) {
       <header className={styles.archive__header}>
          <Breadcrumb paths={['archive']} />
          <h1 className={styles.archive__title}>
+              Project <span>Archive</span>
+            </h1>
+         {/* <h1 className={styles.archive__title}>
             <span>{"//"}</span> Project Archive
-         </h1>
+         </h1> */}
          <p className={styles.archive__subtitle}>
             Legacy systems, deprecated experiments, and structural blueprints from previous iteration cycles.
          </p>
@@ -51,7 +54,7 @@ export default function ClientArchive({ projects }: { projects: any[] }) {
         {/* Table Body */}
         <div className={styles.archive__gridBody}>
           {projects.map((project, i) => (
-            <motion.div 
+            <motion.div
               key={project.slug}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
