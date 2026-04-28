@@ -83,11 +83,10 @@
   }
 
   &__featured {
-    @include glass;
+    @include glass("--clr-brand-tertiary-rgb", 135deg);
     padding: 0;
     overflow: hidden;
     cursor: pointer;
-    border-color: transparent;
     transition: all 0.3s ease;
 
     &:hover {
@@ -193,13 +192,15 @@
   }
 
   &__projectCard {
-    background: rgba(var(--clr-brand-surface-low-rgb), 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: $radius-soft;
     padding: 0;
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    &:nth-child(3n+1) { @include glass("--clr-brand-primary-rgb", 45deg); }
+    &:nth-child(3n+2) { @include glass("--clr-brand-secondary-rgb", 135deg); }
+    &:nth-child(3n+3) { @include glass("--clr-brand-tertiary-rgb", 225deg); }
 
     &:hover {
       border-color: rgba(var(--clr-brand-primary-rgb), 0.3);

@@ -4,14 +4,17 @@
 @use "typography" as *;
 @use "breakpoints" as *;
 
-@mixin glass {
-  background: rgba(var(--clr-brand-surface-rgb), 0.5);
+@mixin glass($color-rgb: "--clr-brand-on-surface-rgb", $angle: 135deg) {
+  background: linear-gradient($angle, rgba(var(#{$color-rgb}), 0.2) 0%, rgba(var(#{$color-rgb}), 0.05) 50%, rgba(var(#{$color-rgb}), 0.01) 100%);
+  background-color: rgba(var(--clr-brand-surface-rgb), 0.45);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(var(#{$color-rgb}), 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 @mixin syntax-card {
-  background: var(--clr-brand-surface-low);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  background-color: var(--clr-brand-surface-low);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: $radius-soft;
 }
@@ -40,7 +43,6 @@
 @mixin page-subtitle {
   font-size: $fs-xl;
   color: $clr-brand-on-surface-variant;
-  max-width: 48rem;
   line-height: $lh-relaxed;
 
   @include mq(md) {
