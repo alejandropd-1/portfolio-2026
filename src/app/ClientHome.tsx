@@ -17,13 +17,13 @@ export default function ClientHome({ projects }: { projects: any[] }) {
       {/* Hero Section */}
       <section className={styles.home__hero}>
         <Breadcrumb paths={['projects']} />
-        
+
         <h1 className={styles.home__title}>
           Compiled <span>Visions.</span>
         </h1>
-        
-        <KeyValue 
-          k="const mission" 
+
+        <KeyValue
+          k="const mission"
           v="UX/UI designer with over 14 years of experience."
           className="italic"
         />
@@ -32,7 +32,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
       <div className={styles.home__grid}>
         {/* Sidebar Filters */}
         <aside className={styles.home__sidebar}>
-          <SyntaxCard label="Filters" className="p-8">
+          <SyntaxCard label="Filters">
             <div className={styles.home__filterGroup}>
               <div className={styles.home__filterTags}>
                 <Tag active>All Output</Tag>
@@ -40,9 +40,9 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                 <Tag>Web Dev</Tag>
                 <Tag>Mobile App</Tag>
               </div>
-              <Tag className="w-fit">Systems</Tag>
+              <Tag className={styles.home__tagFit}>Systems</Tag>
             </div>
-            
+
             <div className={styles.home__statusInfo}>
               <KeyValue k="status" v='"available_for_hire",' />
               <KeyValue k="location" v='"remote",' />
@@ -55,7 +55,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
         <div className={styles.home__projects}>
           {/* Featured Project */}
           {featuredProject && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -65,43 +65,43 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                   <div className={styles.home__featuredGrid}>
                     <div className={styles.home__featuredImageContainer}>
                       {featuredProject.image ? (
-                        <Image 
-                          src={featuredProject.image} 
-                          alt={featuredProject.title} 
-                          fill 
+                        <Image
+                          src={featuredProject.image}
+                          alt={featuredProject.title}
+                          fill
                           className={styles.home__featuredImage}
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <Image 
-                          src="https://picsum.photos/seed/home-main/1920/1080" 
-                          alt={featuredProject.title} 
-                          fill 
+                        <Image
+                          src="https://picsum.photos/seed/home-main/1920/1080"
+                          alt={featuredProject.title}
+                          fill
                           className={styles.home__featuredImage}
                           referrerPolicy="no-referrer"
                         />
                       )}
                     </div>
-                    
+
                     <div className={styles.home__featuredInfo}>
                       <div className={styles.home__featuredMeta}>
                         <span>{"⟡"}</span> {featuredProject.year} {"//"} {featuredProject.type}
                       </div>
-                      
+
                       <h2 className={styles.home__featuredTitle}>
                         {featuredProject.title}
                       </h2>
-                      
+
                       <p className={styles.home__featuredDesc}>
                         {featuredProject.description}
                       </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-10">
+
+                      <div className={styles.home__featuredStack}>
                         {Array.isArray(featuredProject.stack) && featuredProject.stack.map((s: string) => (
                           <Tag key={s}>{s}</Tag>
                         ))}
                       </div>
-                      
+
                       <div className={styles.home__featuredCTA}>
                         READ OUTPUT <ArrowRight size={14} />
                       </div>
@@ -114,21 +114,21 @@ export default function ClientHome({ projects }: { projects: any[] }) {
 
           <div className={styles.home__projectGrid}>
             {projects.slice(1).map((project, i) => (
-              <motion.div 
+              <motion.div
                 key={project.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Link href={`/projects/${project.slug}`} className="h-full block">
+                <Link href={`/projects/${project.slug}`} className={styles.home__projectLink}>
                 <article className={styles.home__projectCard}>
                   {project.image ? (
                     <div className={styles.home__projectCardImageContainer}>
-                      <Image 
-                        src={project.image} 
-                        alt={project.title} 
-                        fill 
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
                         className={styles.home__projectCardImage}
                         referrerPolicy="no-referrer"
                       />
@@ -140,25 +140,25 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                        </pre>
                     </div>
                   )}
-                  
+
                   <div className={styles.home__projectCardBody}>
                     <div className={styles.home__projectCardMeta}>
                        <span className={clsx(project.slug === 'aura-meditation' ? 'tertiary-text' : 'primary-text')}>
                          {project.slug === 'aura-meditation' ? "🗏" : "⟡"}
                        </span> {project.year}
                     </div>
-                    
+
                     <h3 className={styles.home__projectCardTitle}>
                       {project.title}
                     </h3>
-                    
+
                     <div className={styles.home__projectCardDetails}>
                       {project.role && <KeyValue k="Role" v={project.role} />}
                       {project.impact && <KeyValue k="Impact" v={project.impact} />}
                       {project.type && <KeyValue k="Type" v={project.type} />}
                       {project.status && <KeyValue k="Status" v={project.status} />}
                     </div>
-                    
+
                     <div className={styles.home__projectCardFooter}>
                        <div className={styles.home__projectCardLink}>
                           {project.slug === 'aura-meditation' ? 'EXECUTE' : 'VIEW LOG'}

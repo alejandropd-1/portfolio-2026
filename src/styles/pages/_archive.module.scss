@@ -8,11 +8,6 @@
   &__title {
     @include page-title;
     margin-bottom: $size-6;
-
-    span {
-      font-style: italic;
-      color: $clr-brand-primary;
-    }
   }
 
   &__subtitle {
@@ -27,6 +22,7 @@
     border-radius: $radius-soft;
     border: 1px solid rgba(white, 0.05);
     background: $clr-brand-surface;
+    @include glass("--clr-brand-surface-rgb", 182deg);
   }
 
   &__terminalHeader {

@@ -43,6 +43,11 @@
   --clr-brand-danger: #dc2626;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   background-color: $body-bg;
   color: $body-text;
@@ -82,61 +87,19 @@ main {
 .tertiary-text, .text-tertiary { color: $clr-brand-tertiary; }
 .mono { font-family: $mono-font; }
 
-// MDX Utility Classes Fallback
-.grid { display: grid; }
-.flex { display: flex; }
-.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-@media (min-width: 768px) {
-  .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-}
-.gap-8 { gap: $size-8; }
-.gap-4 { gap: $size-4; }
-.my-16 { margin-top: $size-16; margin-bottom: $size-16; }
-.my-8 { margin-top: $size-8; margin-bottom: $size-8; }
-.mb-4 { margin-bottom: $size-4; }
-.mb-2 { margin-bottom: $size-2; }
-.p-8 { padding: $size-8; }
-.p-2 { padding: $size-2; }
-.py-10 { padding-top: $size-10; padding-bottom: $size-10; }
-.w-fit { width: fit-content; }
-.w-10 { width: 2.5rem; }
-.h-10 { height: 2.5rem; }
-.text-center { text-align: center; }
-.text-xl { font-size: $fs-xl; }
-.text-sm { font-size: $fs-sm; }
-.text-4xl { font-size: $fs-4xl; }
-.text-\[10px\] { font-size: 10px; }
-.uppercase { text-transform: uppercase; }
-.tracking-widest { letter-spacing: $ls-widest; }
-.leading-relaxed { line-height: 1.6; }
-.rounded-sm { border-radius: $radius-soft; }
-.rounded-full { border-radius: 9999px; }
-.glass { @include glass; }
-.glass-primary { @include glass("--clr-brand-primary-rgb", 45deg); }
-.glass-secondary { @include glass("--clr-brand-secondary-rgb", 135deg); }
-.glass-tertiary { @include glass("--clr-brand-tertiary-rgb", 225deg); }
-
-.bg-\[\#021220\] { @include syntax-card; }
-.bg-\[\#010c15\] { background-color: #010c15; }
-.bg-\[\#b6ff54\] { background-color: $clr-brand-primary; }
-.bg-\[\#5ed8ff\] { background-color: $clr-brand-tertiary; }
-.text-\[\#6b7c8e\] { color: $clr-brand-on-surface-variant; }
-.bg-primary\/10 { background-color: rgba(var(--clr-brand-primary-rgb), 0.1); }
-.bg-tertiary\/10 { background-color: rgba(var(--clr-brand-tertiary-rgb), 0.1); }
-.text-\[\#fbd065\] { color: $clr-brand-secondary; }
 
 // Basic MDX Content Styling (Prose)
 article {
   h2 {
     font-size: $fs-4xl;
-    margin-top: $size-20;
+    margin-top: $size-10;
     margin-bottom: $size-8;
     color: $clr-brand-on-surface;
   }
 
   h3 {
     font-size: $fs-2xl;
-    margin-top: $size-12;
+    margin-top: $size-6;
     margin-bottom: $size-6;
     color: $clr-brand-on-surface;
   }

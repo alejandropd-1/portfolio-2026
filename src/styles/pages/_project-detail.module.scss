@@ -1,6 +1,38 @@
 @use "../abstracts" as *;
 
 .projectDetail {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 70%;
+    filter: blur(140px);
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  &::before {
+    width: 80vw;
+    height: 60vw;
+    top: 10%;
+    left: 10%;
+        opacity: .7;
+    background: radial-gradient(circle, rgba(var(--clr-brand-tertiary-rgb), 0.4) 0%, transparent 70%);
+  }
+
+  &::after {
+    width: 80vw;
+    height: 60vw;
+    top: 25%;
+    right: -1%;
+    opacity: .5;
+    background: radial-gradient(circle, rgba(var(--clr-brand-primary-rgb), 0.3) 0%, transparent 70%);
+  }
 
   &__backLink {
     display: inline-flex;
@@ -65,8 +97,14 @@
     @include page-title;
 
     span {
-      color: $clr-brand-primary;
       display: block;
+      margin-top: 0.1em;
+      padding-bottom: 0.15em;
+      font-style: normal;
+      background: linear-gradient(to right, $clr-brand-primary, $clr-brand-tertiary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 
@@ -316,6 +354,25 @@
       text-transform: uppercase;
       margin-bottom: $size-4;
     }
+  }
+
+  &__tagStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $size-2;
+  }
+
+  &__codeCard {
+    @include syntax-card;
+    padding: $size-6;
+  }
+
+  &__codePre {
+    color: $clr-brand-secondary;
+    font-family: $mono-font;
+    font-size: 11px;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   &__nextBtn {
