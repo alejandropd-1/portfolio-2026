@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Jost, Roboto_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "@/styles/main.scss";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const jost = Jost({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
 const robotoMono = Roboto_Mono({
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jost.variable} ${robotoMono.variable}`}>
+      <body className={`${inter.variable} ${robotoMono.variable}`}>
         <Navigation />
         <main>{children}</main>
         <Footer />
