@@ -24,8 +24,8 @@
 
 .light {
   // Light Theme (Editorial Soft Blue)
-  --clr-brand-surface-rgb: 220, 232, 248;     // Soft Blue background (less bright)
-  --clr-brand-surface-low-rgb: 241, 247, 254; // Slightly lighter for containers
+  --clr-brand-surface-rgb: 220, 232, 248;     // Soft Blue background
+  --clr-brand-surface-low-rgb: 205, 217, 233; // Darker Blue for containers in Light mode
   --clr-brand-on-surface-rgb: 73, 86, 103;    // #495667 (Inverse On Surface)
   --clr-brand-on-surface-variant-rgb: 105, 119, 137; // #697789 (Outline/Muted)
   --clr-brand-primary-rgb: 38, 109, 17;       // #266D11 (Deep Green for readability)

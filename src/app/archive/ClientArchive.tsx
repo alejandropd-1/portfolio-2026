@@ -5,6 +5,7 @@ import { Folder, ExternalLink, Code } from 'lucide-react';
 import { Tag } from '@/components/UI';
 import styles from '@/styles/pages/_archive.module.scss';
 import { clsx } from 'clsx';
+import { cleanTitle } from '@/helpers/text-helpers';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 
@@ -64,7 +65,7 @@ export default function ClientArchive({ projects }: { projects: any[] }) {
               <div className={styles.archive__year}>{project.year ? project.year.split('.')[0] : '2024'}</div>
               <div className={styles.archive__projectName}>
                 <Link href={`/projects/${project.slug}`} className={styles.archive__projectTitle}>
-                  {project.title.replace(/\s+/g, '_')}
+                  {cleanTitle(project.title).replace(/\s+/g, '_')}
                 </Link>
                 {project.status && (
                   <span className={styles.archive__status}>{project.status}</span>

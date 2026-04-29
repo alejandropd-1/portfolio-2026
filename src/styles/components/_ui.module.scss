@@ -26,7 +26,7 @@
   align-items: center;
   padding: $size-1 $size-3;
   background: rgba(var(--clr-brand-surface-low-rgb), 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(var(--clr-brand-on-surface-rgb), 0.1);
   color: $clr-brand-on-surface-variant;
   font-family: $mono-font;
   font-size: 10px;

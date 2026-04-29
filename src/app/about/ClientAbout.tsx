@@ -5,6 +5,7 @@ import { Folder, Beaker, Settings, Monitor } from 'lucide-react';
 import Link from 'next/link';
 import { SyntaxCard, KeyValue } from '@/components/UI';
 import styles from '@/styles/pages/_about.module.scss';
+import { formatTitle } from '@/helpers/text-helpers';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const philosophies = [
@@ -28,7 +29,7 @@ const philosophies = [
   }
 ];
 
-export default function ClientAbout({ frontmatter, content }: { frontmatter: any, content: string }) {
+export default function ClientAbout({ frontmatter, children }: { frontmatter: any, children: React.ReactNode }) {
   return (
     <div className="page-container">
       <div className={styles.about}>
@@ -40,24 +41,18 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
               <span className={styles.about__subtitleHighlight}>{"//"}</span> THE ARCHITECT
             </div>
             <h1 className={styles.about__title}>
-              Bridging <br />
-              <span>Logic & Soul</span>
+              {formatTitle(frontmatter.title || "Bridging \\n // Logic & Soul")}
             </h1>
             <div className={styles.about__accent}></div>
           </div>
 
           <div className={styles.about__content}>
             <div className={styles.about__details}>
-              <p>
-                I am a UI/UX Architect who operates at the intersection of human empathy and technical execution. I believe that a truly great interface is not just painted onto a screen; it is engineered into the very fabric of the application.
-              </p>
-              <p>
-                By treating design systems as code bases and user flows as algorithms, I build digital experiences that feel intuitive to the user and maintainable for the development team. The aesthetic is merely the terminal output of a deeply considered structural logic.
-              </p>
+              {children}
             </div>
 
             <div className={`pt-10 border-t border-[rgba(var(--clr-brand-on-surface-rgb),0.05)]`}>
-              <KeyValue k="Location =" v='"Global_Remote";' className={styles.about__keyValue} />
+              <KeyValue k="Location =" v={frontmatter.location || '"Global_Remote";'} className={styles.about__keyValue} />
             </div>
           </div>
         </section>
