@@ -3,6 +3,7 @@ import { Tag } from '@/components/UI';
 import Image from 'next/image';
 import Link from 'next/link';
 import { loadJob, loadJobs } from '@/helpers/file-helpers';
+import { formatTitle } from '@/helpers/text-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/pages/_project-detail.module.scss';
@@ -40,8 +41,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <span>{frontmatter.type}</span>
             </div>
             <h1 className={styles.projectDetail__title}>
-              {frontmatter.title.split(' ').slice(0, 2).join(' ')} <br />
-              <span>{frontmatter.title.split(' ').slice(2).join(' ')}</span>
+              {formatTitle(frontmatter.title)}
             </h1>
           </div>
           
