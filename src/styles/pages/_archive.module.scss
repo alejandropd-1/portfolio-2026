@@ -27,6 +27,7 @@
     border-radius: $radius-soft;
     border: 1px solid rgba(white, 0.05);
     background: $clr-brand-surface;
+    @include glass("--clr-brand-surface-rgb", 182deg);
   }
 
   &__terminalHeader {
