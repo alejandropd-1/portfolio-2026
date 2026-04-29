@@ -40,6 +40,35 @@
     }
   }
 
+  &__subtitle {
+    color: $clr-brand-tertiary;
+    font-family: $mono-font;
+    font-size: $fs-xs;
+    margin-bottom: $size-8;
+    display: flex;
+    align-items: center;
+    gap: $size-2;
+  }
+
+  &__subtitleHighlight {
+    color: $clr-brand-primary;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: $size-8;
+  }
+
+  &__keyValue {
+    font-size: $fs-sm;
+    font-family: $mono-font;
+  }
+
+  &__section {
+    margin-bottom: $size-32;
+  }
+
   &__philosophyHeader {
     display: flex;
     align-items: center;

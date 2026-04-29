@@ -356,6 +356,25 @@
     }
   }
 
+  &__tagStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $size-2;
+  }
+
+  &__codeCard {
+    @include syntax-card;
+    padding: $size-6;
+  }
+
+  &__codePre {
+    color: $clr-brand-secondary;
+    font-family: $mono-font;
+    font-size: 11px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
   &__nextBtn {
     width: 100%;
     background: $clr-brand-primary;

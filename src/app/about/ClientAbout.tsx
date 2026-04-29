@@ -36,8 +36,8 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
         <section className={styles.about__hero}>
           <div>
 
-            <div className="tertiary-text font-mono text-xs mb-8 flex items-center gap-2">
-              <span className="primary-text">{"//"}</span> THE ARCHITECT
+            <div className={styles.about__subtitle}>
+              <span className={styles.about__subtitleHighlight}>{"//"}</span> THE ARCHITECT
             </div>
             <h1 className={styles.about__title}>
               Bridging <br />
@@ -47,7 +47,7 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
           </div>
 
           <div className={styles.about__content}>
-            <div className="space-y-8">
+            <div className={styles.about__details}>
               <p>
                 I am a UI/UX Architect who operates at the intersection of human empathy and technical execution. I believe that a truly great interface is not just painted onto a screen; it is engineered into the very fabric of the application.
               </p>
@@ -57,12 +57,12 @@ export default function ClientAbout({ frontmatter, content }: { frontmatter: any
             </div>
 
             <div className={`pt-10 border-t border-[rgba(var(--clr-brand-on-surface-rgb),0.05)]`}>
-              <KeyValue k="Location =" v='"Global_Remote";' className="text-sm font-mono" />
+              <KeyValue k="Location =" v='"Global_Remote";' className={styles.about__keyValue} />
             </div>
           </div>
         </section>
 
-        <section className="mb-32">
+        <section className={styles.about__section}>
           <div className={styles.about__philosophyHeader}>
              <span><Monitor size={24} /></span>
              <h2>Core Philosophy</h2>

@@ -207,7 +207,7 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
         </header>
 
         {/* Sections */}
-        <div className="space-y-40">
+        <div className={styles.resume__sectionGroup}>
           {/* 01. Experience Map */}
           <section className={styles.resume__section}>
             <div className={styles.resume__sectionHeader}>
@@ -215,7 +215,7 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
               <h2>Experience Map</h2>
             </div>
 
-            <div className="space-y-12">
+            <div className={styles.resume__experienceList}>
               <AnimatePresence mode='popLayout'>
                 {filteredExperiences.map((exp) => (
                   <motion.div 
@@ -252,7 +252,7 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
                               ))}
                             </ul>
                           )}
-                          <div className="flex flex-wrap gap-2">
+                          <div className={styles.resume__tagStack}>
                             {exp.stack.map(s => (
                               <Tag key={s} active={activeTags.includes(s.toUpperCase())}>{s}</Tag>
                             ))}
@@ -301,7 +301,7 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
           </section>
 
           {/* 03. Base Compilation */}
-          <section className="pb-32">
+          <section className={styles.resume__footer}>
             <div className={styles.resume__sectionHeader}>
               <span>03.</span>
               <h2>Base Compilation</h2>

@@ -192,6 +192,13 @@
     margin-bottom: $size-8;
   }
 
+  &__featuredStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $size-2;
+    margin-bottom: $size-10;
+  }
+
   &__featuredCTA {
     display: flex;
     align-items: center;
@@ -203,6 +210,10 @@
     margin-top: $size-8;
   }
 
+  &__tagFit {
+    width: fit-content;
+  }
+
   &__projectGrid {
     display: grid;
     gap: $size-12;
@@ -210,6 +221,11 @@
     @include mq(md) {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  &__projectLink {
+    height: 100%;
+    display: block;
   }
 
   &__projectCard {
@@ -262,6 +278,8 @@
         font-size: 10px;
         color: $clr-brand-tertiary;
         font-family: $mono-font;
+        white-space: pre-wrap;
+        word-break: break-word;
       }
     }
 

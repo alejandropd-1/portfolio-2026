@@ -43,6 +43,11 @@
   --clr-brand-danger: #dc2626;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   background-color: $body-bg;
   color: $body-text;
@@ -129,14 +134,14 @@ main {
 article {
   h2 {
     font-size: $fs-4xl;
-    margin-top: $size-20;
+    margin-top: $size-10;
     margin-bottom: $size-8;
     color: $clr-brand-on-surface;
   }
 
   h3 {
     font-size: $fs-2xl;
-    margin-top: $size-12;
+    margin-top: $size-6;
     margin-bottom: $size-6;
     color: $clr-brand-on-surface;
   }

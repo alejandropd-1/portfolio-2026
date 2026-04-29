@@ -108,7 +108,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
                   <div className={styles.projectDetail__specGroup}>
                      <h4 className={styles.projectDetail__specGroupLabel}>STACK</h4>
-                     <div className="flex flex-wrap gap-2">
+                     <div className={styles.projectDetail__tagStack}>
                         {Array.isArray(frontmatter.stack) ? frontmatter.stack.map((s: string) => <Tag key={s}>{s}</Tag>) : <Tag>{frontmatter.stack}</Tag>}
                      </div>
                   </div>
@@ -116,8 +116,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   {frontmatter.codeSnippet && (
                     <div className={styles.projectDetail__specGroup}>
                        <h4 className={styles.projectDetail__specGroupLabel}>CODE BLUERPINT</h4>
-                       <div className="syntax-card p-6">
-                          <pre className="secondary-text font-mono text-[11px]">
+                       <div className={styles.projectDetail__codeCard}>
+                          <pre className={styles.projectDetail__codePre}>
                            <code>{frontmatter.codeSnippet}</code>
                           </pre>
                        </div>

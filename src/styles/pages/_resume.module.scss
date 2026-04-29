@@ -147,6 +147,28 @@
     }
   }
 
+  &__sectionGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $size-40;
+  }
+
+  &__experienceList {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12;
+  }
+
+  &__tagStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $size-2;
+  }
+
+  &__footer {
+    padding-bottom: $size-32;
+  }
+
   &__section {
     margin-bottom: $size-40;
     

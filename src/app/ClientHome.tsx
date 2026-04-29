@@ -32,7 +32,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
       <div className={styles.home__grid}>
         {/* Sidebar Filters */}
         <aside className={styles.home__sidebar}>
-          <SyntaxCard label="Filters" className="p-8">
+          <SyntaxCard label="Filters">
             <div className={styles.home__filterGroup}>
               <div className={styles.home__filterTags}>
                 <Tag active>All Output</Tag>
@@ -40,7 +40,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                 <Tag>Web Dev</Tag>
                 <Tag>Mobile App</Tag>
               </div>
-              <Tag className="w-fit">Systems</Tag>
+              <Tag className={styles.home__tagFit}>Systems</Tag>
             </div>
 
             <div className={styles.home__statusInfo}>
@@ -96,7 +96,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                         {featuredProject.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-2 mb-10">
+                      <div className={styles.home__featuredStack}>
                         {Array.isArray(featuredProject.stack) && featuredProject.stack.map((s: string) => (
                           <Tag key={s}>{s}</Tag>
                         ))}
@@ -121,7 +121,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Link href={`/projects/${project.slug}`} className="h-full block">
+                <Link href={`/projects/${project.slug}`} className={styles.home__projectLink}>
                 <article className={styles.home__projectCard}>
                   {project.image ? (
                     <div className={styles.home__projectCardImageContainer}>
