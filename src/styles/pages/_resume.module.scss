@@ -32,16 +32,6 @@
       border-color: rgba(var(--clr-brand-on-surface-rgb), 0.15);
     }
     position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(var(--clr-brand-on-surface-rgb), 0.1), transparent);
-    }
   }
 
   &__terminalHeader {
@@ -89,6 +79,10 @@
   &__terminalBody {
     padding: $size-10 $size-10;
     background: radial-gradient(circle at top left, rgba($clr-brand-primary, 0.03), transparent 40%);
+    
+    :global(.light) & {
+      background: radial-gradient(circle at top left, rgba(var(--clr-brand-surface-low-rgb), 0.3), transparent 60%);
+    }
   }
 
   &__searchBox {
