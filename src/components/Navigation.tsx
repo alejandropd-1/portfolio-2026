@@ -65,11 +65,18 @@ export default function Navigation() {
     }
   }, []);
 
-  // Scroll lock while menu is open
+  // Scroll lock while menu is open — html+body overflow hidden (modern, safe)
   useEffect(() => {
     if (!mounted) return;
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    if (menuOpen) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
     return () => {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     };
   }, [menuOpen, mounted]);

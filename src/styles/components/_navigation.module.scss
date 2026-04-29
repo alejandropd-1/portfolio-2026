@@ -183,6 +183,8 @@
   flex-direction: column;
   height: 100dvh; // exact viewport height, no overflow
   overflow: hidden;
+  overscroll-behavior: none; // blocks pull-to-refresh and bounce on iOS
+  touch-action: none;         // prevents touch scroll bleed-through on iOS Safari
 
   // Glass base — same mixin as cards
   @include glass();
@@ -221,7 +223,6 @@
     justify-content: space-evenly;
     padding: $size-2 $size-6;
     gap: 0;
-    overflow-y: auto;
   }
 
   &__link {
