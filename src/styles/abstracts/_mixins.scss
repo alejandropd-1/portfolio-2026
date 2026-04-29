@@ -38,8 +38,9 @@
     border-radius: inherit;
 
     :global(.light) & {
-      filter: invert(1);
-      opacity: 0.2;
+      // Soften grain inversion or remove if it affects patterns poorly
+      filter: invert(0.8); 
+      opacity: 0.15;
     }
   }
 
@@ -59,9 +60,9 @@
     border-radius: inherit;
 
     :global(.light) & {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: saturate(120%) blur(25px) brightness(1.2);
-      opacity: 0.5;
+      background-color: rgba(var(--clr-brand-surface-low-rgb), 0.4);
+      backdrop-filter: saturate(140%) blur(25px) brightness(0.98);
+      opacity: 0.7;
     }
   }
 }
