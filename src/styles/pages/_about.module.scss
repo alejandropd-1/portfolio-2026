@@ -15,11 +15,6 @@
 
   &__title {
     @include page-title;
-
-    span {
-      color: $clr-brand-primary;
-      font-style: italic;
-    }
   }
 
   &__accent {

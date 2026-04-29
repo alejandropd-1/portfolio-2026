@@ -43,11 +43,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <span>{frontmatter.type}</span>
             </div>
             <h1 className={styles.projectDetail__title}>
-              {frontmatter.title.split(' ').slice(0, 2).join(' ')} <br />
-              <span>{frontmatter.title.split(' ').slice(2).join(' ')}</span>
+              {frontmatter.title.split(' ').slice(0, Math.ceil(frontmatter.title.split(' ').length / 2)).join(' ')} <br />
+              <span>{frontmatter.title.split(' ').slice(Math.ceil(frontmatter.title.split(' ').length / 2)).join(' ')}</span>
             </h1>
           </div>
-          
+
           <div className={styles.projectDetail__sidebarHeader}>
              <div className={styles.projectDetail__meta}>
                 <div className={styles.projectDetail__metaRow}>
@@ -76,7 +76,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         {frontmatter.image && (
           <div className={styles.projectDetail__hero}>
             <div className={styles.projectDetail__heroFrame}>
-              <Image 
+              <Image
                 src={frontmatter.image}
                 alt={frontmatter.title}
                 fill
@@ -102,7 +102,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                <div className={styles.projectDetail__stickyHeader}>
                   specs.json
                </div>
-               
+
                <div className={styles.projectDetail__stickyBody}>
                   <div className={styles.projectDetail__stickyTitle}>
                      <Code size={18} />
@@ -128,7 +128,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   )}
                </div>
             </div>
-            
+
             <Link href={`/projects/${nextProject.slug}`} className={styles.projectDetail__nextBtn}>
                NEXT PROJECT <ArrowRight size={18} />
             </Link>

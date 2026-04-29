@@ -16,7 +16,7 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: "AleDesign | Alejandro Delgado",
-  description: "UX/UI Web Designer Portfolio",
+  description: "Multimedia Designer Portfolio",
 };
 
 export default function RootLayout({

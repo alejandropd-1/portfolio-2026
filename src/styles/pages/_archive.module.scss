@@ -8,11 +8,6 @@
   &__title {
     @include page-title;
     margin-bottom: $size-6;
-
-    span {
-      font-style: italic;
-      color: $clr-brand-primary;
-    }
   }
 
   &__subtitle {

@@ -116,8 +116,6 @@
     h1 {
       @include page-title;
       margin-bottom: $size-8;
-      
-      span { color: $clr-brand-primary; }
     }
   }
 
