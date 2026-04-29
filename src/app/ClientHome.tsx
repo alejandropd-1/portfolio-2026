@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/pages/_home.module.scss';
 import { clsx } from 'clsx';
+import { cleanTitle } from '@/helpers/text-helpers';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export default function ClientHome({ projects }: { projects: any[] }) {
@@ -67,7 +68,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                       {featuredProject.image ? (
                         <Image
                           src={featuredProject.image}
-                          alt={featuredProject.title}
+                          alt={cleanTitle(featuredProject.title)}
                           fill
                           className={styles.home__featuredImage}
                           referrerPolicy="no-referrer"
@@ -75,7 +76,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                       ) : (
                         <Image
                           src="https://picsum.photos/seed/home-main/1920/1080"
-                          alt={featuredProject.title}
+                          alt={cleanTitle(featuredProject.title)}
                           fill
                           className={styles.home__featuredImage}
                           referrerPolicy="no-referrer"
@@ -89,7 +90,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                       </div>
 
                       <h2 className={styles.home__featuredTitle}>
-                        {featuredProject.title}
+                        {cleanTitle(featuredProject.title)}
                       </h2>
 
                       <p className={styles.home__featuredDesc}>
@@ -127,7 +128,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                     <div className={styles.home__projectCardImageContainer}>
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={cleanTitle(project.title)}
                         fill
                         className={styles.home__projectCardImage}
                         referrerPolicy="no-referrer"
@@ -149,7 +150,7 @@ export default function ClientHome({ projects }: { projects: any[] }) {
                     </div>
 
                     <h3 className={styles.home__projectCardTitle}>
-                      {project.title}
+                      {cleanTitle(project.title)}
                     </h3>
 
                     <div className={styles.home__projectCardDetails}>

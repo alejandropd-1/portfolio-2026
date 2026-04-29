@@ -8,5 +8,9 @@ export default async function AboutPage() {
   const page = await loadPage('about');
   if (!page) return null;
 
-  return <ClientAbout frontmatter={page.frontmatter} content={page.content} />;
+  return (
+    <ClientAbout frontmatter={page.frontmatter}>
+      <MDXRemote source={page.content} />
+    </ClientAbout>
+  );
 }

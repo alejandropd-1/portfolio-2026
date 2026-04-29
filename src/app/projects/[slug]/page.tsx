@@ -3,6 +3,7 @@ import { Tag } from '@/components/UI';
 import Image from 'next/image';
 import Link from 'next/link';
 import { loadProject, loadProjects } from '@/helpers/file-helpers';
+import { formatTitle, cleanTitle } from '@/helpers/text-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/pages/_project-detail.module.scss';
@@ -43,8 +44,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <span>{frontmatter.type}</span>
             </div>
             <h1 className={styles.projectDetail__title}>
-              {frontmatter.title.split(' ').slice(0, Math.ceil(frontmatter.title.split(' ').length / 2)).join(' ')} <br />
-              <span>{frontmatter.title.split(' ').slice(Math.ceil(frontmatter.title.split(' ').length / 2)).join(' ')}</span>
+              {formatTitle(frontmatter.title)}
             </h1>
           </div>
 
@@ -78,7 +78,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className={styles.projectDetail__heroFrame}>
               <Image
                 src={frontmatter.image}
-                alt={frontmatter.title}
+                alt={cleanTitle(frontmatter.title)}
                 fill
                 className={styles.projectDetail__heroImage}
                 referrerPolicy="no-referrer"

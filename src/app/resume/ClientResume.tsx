@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { SyntaxCard, Tag, KeyValue } from '@/components/UI';
 import styles from '@/styles/pages/_resume.module.scss';
 import { clsx } from 'clsx';
+import { formatTitle } from '@/helpers/text-helpers';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const experiences = [
@@ -58,7 +59,7 @@ const skills = [
   ]}
 ];
 
-export default function ClientResume({ frontmatter, content, jobs }: { frontmatter: any, content: string, jobs: any[] }) {
+export default function ClientResume({ frontmatter, children, jobs }: { frontmatter: any, children?: React.ReactNode, jobs: any[] }) {
   const experiences = useMemo(() => {
     return jobs.map(job => ({
       role: job.role || job.title,
@@ -145,39 +146,57 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
       <div className={styles.resume}>
         <Breadcrumb paths={['resume']} />
 
-        {/* Search Bar Section */}
+        {/* Search Bar Section - Terminal Style */}
         <section className={styles.resume__search}>
           <p className={styles.resume__searchLabel}>Refine your search</p>
-          <div className={styles.resume__searchBox}>
-            <Search size={20} />
-            <input 
-              type="text" 
-              placeholder="Search for keywords, skills, or roles..."
-              className={styles.resume__input}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-          <div className={styles.resume__filters}>
-            <div className={styles.resume__tags}>
-              {availableTags.map(tag => (
-                <button key={tag} onClick={() => toggleTag(tag)} style={{ background: 'none', border: 'none', padding: 0 }}>
-                  <Tag active={activeTags.includes(tag)}>{tag}</Tag>
-                </button>
-              ))}
-              {(searchQuery || activeTags.length > 0) && (
-                <button onClick={clearAll} className={styles.resume__clearAll}>
-                  Clear All
-                </button>
-              )}
+          
+          <div className={styles.resume__terminal}>
+            <div className={styles.resume__terminalHeader}>
+              <div className={styles.resume__terminalDots}>
+                <span className={styles.resume__dotRed}></span>
+                <span className={styles.resume__dotYellow}></span>
+                <span className={styles.resume__dotGreen}></span>
+              </div>
+              <div className={styles.resume__terminalPath}>
+                <Folder size={12} />
+                <span>~/aledesign/query_db.sh</span>
+              </div>
             </div>
-            <div className={styles.resume__downloads}>
-               <button className={styles.resume__downloadBtn} onClick={downloadATS}>
-                  <Download size={14} /> ATS CV
-               </button>
-               <button className={styles.resume__downloadBtn} onClick={downloadCustom}>
-                  <Download size={14} /> CUSTOM CV
-               </button>
+
+            <div className={styles.resume__terminalBody}>
+              <div className={styles.resume__searchBox}>
+                <span className={styles.resume__prompt}>{">"}</span>
+                <input 
+                  type="text" 
+                  placeholder="Search for keywords, skills, or roles..."
+                  className={styles.resume__input}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+
+              <div className={styles.resume__filters}>
+                <div className={styles.resume__tags}>
+                  {availableTags.map(tag => (
+                    <button key={tag} onClick={() => toggleTag(tag)} className={styles.resume__tagBtn}>
+                      <Tag active={activeTags.includes(tag)}>{tag}</Tag>
+                    </button>
+                  ))}
+                  {(searchQuery || activeTags.length > 0) && (
+                    <button onClick={clearAll} className={styles.resume__clearAll}>
+                      Clear All
+                    </button>
+                  )}
+                </div>
+                <div className={styles.resume__downloads}>
+                  <button className={styles.resume__downloadBtn} onClick={downloadATS}>
+                    <Download size={14} /> ATS CV
+                  </button>
+                  <button className={styles.resume__downloadBtn} onClick={downloadCustom}>
+                    <Download size={14} /> CUSTOM CV
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -185,23 +204,27 @@ export default function ClientResume({ frontmatter, content, jobs }: { frontmatt
         {/* Main Resume Heading */}
         <header className={styles.resume__hero}>
           <h1>
-            UX/UI <span>Web Designer</span>
+            {formatTitle(frontmatter.title || "UX/UI // Web Designer")}
           </h1>
-          <p className={styles.resume__subtitle}>
-            Bridging the gap between conceptual editorial design and robust front-end architectures. Specializing in design systems and high-fidelity prototypes.
-          </p>
+          <div className={styles.resume__subtitle}>
+            {children || (
+              <p>
+                Bridging the gap between conceptual editorial design and robust front-end architectures. Specializing in design systems and high-fidelity prototypes.
+              </p>
+            )}
+          </div>
           <div className={styles.resume__meta}>
             <div className={styles.resume__metaGroup}>
               <span>Location =</span>
-              <span>San Francisco, CA;</span>
+              <span>{frontmatter.location || "Buenos Aires, Argentina"};</span>
             </div>
             <div className={clsx(styles.resume__metaGroup, styles['resume__metaGroup--primary'])}>
               <span>Email =</span>
-              <span>hello@aledesign.com;</span>
+              <span>{frontmatter.email || "hello@aledesign.com"};</span>
             </div>
             <div className={styles.resume__metaGroup}>
               <span>Status =</span>
-              <span>Available for new opportunities;</span>
+              <span>{frontmatter.status || "Available for new opportunities"};</span>
             </div>
           </div>
         </header>
