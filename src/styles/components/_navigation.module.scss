@@ -176,6 +176,9 @@
 // MOBILE FULL-SCREEN OVERLAY
 // ──────────────────────────────────────────────
 .mobile_overlay {
+  // Glass base — same mixin as cards
+  @include glass();
+
   position: fixed;
   inset: 0;
   z-index: 190;
@@ -185,9 +188,6 @@
   overflow: hidden;
   overscroll-behavior: none; // blocks pull-to-refresh and bounce on iOS
   touch-action: none;         // prevents touch scroll bleed-through on iOS Safari
-
-  // Glass base — same mixin as cards
-  @include glass();
 
   // Additional deep overlay tinting
   background-color: rgba(var(--clr-brand-surface-rgb), 0.97);
