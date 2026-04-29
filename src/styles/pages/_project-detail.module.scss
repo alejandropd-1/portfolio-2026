@@ -1,6 +1,38 @@
 @use "../abstracts" as *;
 
 .projectDetail {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 70%;
+    filter: blur(140px);
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  &::before {
+    width: 60vw;
+    height: 60vw;
+    top: 10%;
+    left: 20%;
+        opacity: .7;
+    background: radial-gradient(circle, rgba(var(--clr-brand-tertiary-rgb), 0.4) 0%, transparent 70%);
+  }
+
+  &::after {
+    width: 60vw;
+    height: 60vw;
+    top: 25%;
+    right: 1%;
+    opacity: .5;
+    background: radial-gradient(circle, rgba(var(--clr-brand-primary-rgb), 0.3) 0%, transparent 70%);
+  }
 
   &__backLink {
     display: inline-flex;
