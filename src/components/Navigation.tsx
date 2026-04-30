@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, Monitor, Code } from 'lucide-react';
+import { Sun, Moon, Rss, Code } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import styles from '@/styles/components/_navigation.module.scss';
@@ -145,9 +145,9 @@ export default function Navigation() {
           </button>
 
           {/* Desktop-only action buttons */}
-          <button className={clsx(styles.nav__btn, styles['nav__btn--desktop'])} aria-label="Preview">
-            <Monitor size={18} />
-          </button>
+          <Link href="/rss.xml" className={clsx(styles.nav__btn, styles['nav__btn--desktop'])} aria-label="RSS Feed">
+            <Rss size={18} />
+          </Link>
           <button className={clsx(styles.nav__btn, styles['nav__btn--desktop'])} aria-label="Source">
             <Code size={18} />
           </button>
@@ -253,10 +253,10 @@ export default function Navigation() {
                   {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
                   <span>{theme === 'light' ? 'LIGHT_MODE' : 'DARK_MODE'}</span>
                 </button>
-                <button className={clsx(styles.nav__btn, styles['nav__btn--overlay'])} aria-label="Preview">
-                  <Monitor size={18} />
-                  <span>PREVIEW</span>
-                </button>
+                <Link href="/rss.xml" className={clsx(styles.nav__btn, styles['nav__btn--overlay'])} aria-label="RSS Feed">
+                  <Rss size={18} />
+                  <span>RSS FEED</span>
+                </Link>
                 <button className={clsx(styles.nav__btn, styles['nav__btn--overlay'])} aria-label="Source">
                   <Code size={18} />
                   <span>SOURCE</span>
