@@ -225,12 +225,22 @@
     gap: 0;
   }
 
+    &__container_link{
+    border-bottom: 1px solid rgba(var(--clr-brand-on-surface-rgb), 0.06);
+    border-top: 1px solid rgba(var(--clr-brand-on-surface-rgb), 0.06);
+    &:first-child {
+      border-top: none;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
   &__link {
     display: flex;
     align-items: baseline;
     gap: $size-3;
     padding: $size-4 0;  // reduced from $size-6 for better fit
-    border-bottom: 1px solid rgba(var(--clr-brand-on-surface-rgb), 0.06);
     text-decoration: none;
     color: $clr-brand-on-surface-variant;
     font-family: $mono-font;
@@ -251,11 +261,8 @@
         color: $clr-brand-primary;
       }
     }
-
-    &:first-child {
-      border-top: 1px solid rgba(var(--clr-brand-on-surface-rgb), 0.06);
-    }
   }
+
 
   &__index {
     font-size: $fs-xs;

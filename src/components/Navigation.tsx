@@ -225,6 +225,7 @@ export default function Navigation() {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
+                    className={styles.mobile_overlay__container_link}
                   >
                     <Link
                       href={link.href}
