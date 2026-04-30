@@ -18,6 +18,11 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   title: "AleDesign | Alejandro Delgado",
   description: "Multimedia Designer Portfolio",
+  alternates: {
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
+  },
 };
 
 export default function RootLayout({
